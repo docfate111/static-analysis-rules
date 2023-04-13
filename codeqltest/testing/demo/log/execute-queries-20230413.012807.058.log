@@ -1,0 +1,170 @@
+[2023-04-13 01:28:07] This is codeql execute queries -J-Xmx1471M --off-heap-ram=1471 --verbosity=progress --logdir=/home/t/demo/codeqltest/testing/demo/log --evaluator-log-level=5 --insecurely-execute-ml-model-checksums= --warnings=show --qlconfig-file=/home/t/demo/codeqltest/testing/qlconfig.yml -- /home/t/demo/codeqltest/testing/demo/db-cpp /home/t/demo/codeqltest/testing/live.ql
+[2023-04-13 01:28:07] Calling plumbing command: codeql resolve queries --qlconfig-file=/home/t/demo/codeqltest/testing/qlconfig.yml --format=json -- /home/t/demo/codeqltest/testing/live.ql
+[2023-04-13 01:28:07] [PROGRESS] resolve queries> Recording pack reference docfate111/testing at /home/t/demo/codeqltest/testing.
+[2023-04-13 01:28:07] Plumbing command codeql resolve queries completed:
+                      [
+                        "/home/t/demo/codeqltest/testing/live.ql"
+                      ]
+[2023-04-13 01:28:07] Refusing fancy output: The terminal is not an xterm: tmux-256color
+[2023-04-13 01:28:07] Creating executor with 1 threads.
+[2023-04-13 01:28:07] Calling plumbing command: codeql resolve extensions --qlconfig-file=/home/t/demo/codeqltest/testing/qlconfig.yml --insecurely-execute-ml-model-checksums= /home/t/demo/codeqltest/testing/live.ql
+[2023-04-13 01:28:07] Calling plumbing command: codeql resolve queries --qlconfig-file=/home/t/demo/codeqltest/testing/qlconfig.yml --format startingpacks -- /home/t/demo/codeqltest/testing/live.ql
+[2023-04-13 01:28:07] [PROGRESS] resolve queries> Recording pack reference docfate111/testing at /home/t/demo/codeqltest/testing.
+[2023-04-13 01:28:07] Plumbing command codeql resolve queries completed:
+                      [
+                        "/home/t/demo/codeqltest/testing"
+                      ]
+[2023-04-13 01:28:07] Plumbing command codeql resolve extensions completed:
+                      {
+                        "models" : [ ],
+                        "data" : { }
+                      }
+[2023-04-13 01:28:07] [DETAILS] execute queries> Did not find any ML models.
+[2023-04-13 01:28:07] [SPAMMIER] execute queries> Data extensions for query 'live.ql' in 'docfate111/testing':
+                      {}
+[2023-04-13 01:28:07] Calling plumbing command: codeql resolve library-path --qlconfig-file=/home/t/demo/codeqltest/testing/qlconfig.yml --query=/home/t/demo/codeqltest/testing/live.ql --format=json
+[2023-04-13 01:28:07] [DETAILS] resolve library-path> Resolving query at normalized path /home/t/demo/codeqltest/testing/live.ql.
+[2023-04-13 01:28:07] [DETAILS] resolve library-path> Found enclosing pack 'docfate111/testing' at /home/t/demo/codeqltest/testing.
+[2023-04-13 01:28:07] [DETAILS] resolve library-path> Adding compilation cache at /home/t/demo/codeqltest/testing/.cache.
+[2023-04-13 01:28:07] [DETAILS] resolve library-path> Resolving library dependencies from /home/t/demo/codeqltest/testing/qlpack.yml.
+[2023-04-13 01:28:07] [DETAILS] resolve library-path> QL pack dependencies for /home/t/demo/codeqltest/testing resolved OK.
+[2023-04-13 01:28:07] [DETAILS] resolve library-path> Found dbscheme through QL packs: /home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmlecode.cpp.dbscheme.
+[2023-04-13 01:28:07] Plumbing command codeql resolve library-path completed:
+                      {
+                        "libraryPath" : [
+                          "/home/t/demo/codeqltest/testing",
+                          "/home/t/.codeql/packages/codeql/cpp-all/0.6.1",
+                          "/home/t/.codeql/packages/codeql/ssa/0.0.14",
+                          "/home/t/.codeql/packages/codeql/tutorial/0.0.7"
+                        ],
+                        "dbscheme" : "/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmlecode.cpp.dbscheme",
+                        "compilationCache" : [
+                          "/home/t/demo/codeqltest/testing/.cache"
+                        ],
+                        "relativeName" : "docfate111/testing/live.ql",
+                        "qlPackName" : "docfate111/testing"
+                      }
+[2023-04-13 01:28:07] [PROGRESS] execute queries> Compiling query plan for /home/t/demo/codeqltest/testing/live.ql.
+[2023-04-13 01:28:07] [DETAILS] execute queries> Resolving imports for /home/t/demo/codeqltest/testing/live.ql.
+[2023-04-13 01:28:08] Resolved file set for /home/t/demo/codeqltest/testing/live.ql hashes to e396f5012fe0195a80dea22a03494bab260121b2.
+[2023-04-13 01:28:08] [DETAILS] execute queries> Checking QL for /home/t/demo/codeqltest/testing/live.ql.
+[2023-04-13 01:28:08] ExternalModuleBindingPass ...
+[2023-04-13 01:28:09] ExternalModuleBindingPass time: 00:01.066
+[2023-04-13 01:28:09] QLPredicateSynthesiser ...
+[2023-04-13 01:28:09] QLPredicateSynthesiser time: 00:00.011
+[2023-04-13 01:28:09] DeclarationBindingPass ...
+[2023-04-13 01:28:09] DeclarationBindingPass time: 00:00.061
+[2023-04-13 01:28:09] Fixed point time ...
+[2023-04-13 01:28:09] Fixed point time time: 00:00.384
+[2023-04-13 01:28:09] ReferenceBindingPass ...
+[2023-04-13 01:28:10] ReferenceBindingPass time: 00:00.050
+[2023-04-13 01:28:10] PopulateInstantiationMapPass ...
+[2023-04-13 01:28:10] PopulateInstantiationMapPass time: 00:00.238
+[2023-04-13 01:28:10] ReferenceBindingCheck ...
+[2023-04-13 01:28:10] ReferenceBindingCheck time: 00:00.054
+[2023-04-13 01:28:10] PredicateBodyBindingPass ...
+[2023-04-13 01:28:10] PredicateBodyBindingPass time: 00:00.282
+[2023-04-13 01:28:10] LanguagePragmaPropagationPass ...
+[2023-04-13 01:28:10] LanguagePragmaPropagationPass time: 00:00.023
+[2023-04-13 01:28:10] Ambiguity checks ...
+[2023-04-13 01:28:10] Ambiguity checks time: 00:00.121
+[2023-04-13 01:28:10] Ql checks ...
+[2023-04-13 01:28:11] Ql checks time: 00:00.804
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Could not resolve type DataFlow::PathNode (/home/t/demo/codeqltest/testing/live.ql:29,6-24)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Could not resolve type DataFlow::PathNode (/home/t/demo/codeqltest/testing/live.ql:29,33-51)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Could not resolve type FlowState (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/DataFlowImplLocal.qll:272,35-44)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Could not resolve type FlowState (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/DataFlowImplLocal.qll:278,31-40)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Could not resolve type FlowState (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/DataFlowImplLocal.qll:286,34-43)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Could not resolve type FlowState (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/DataFlowImplLocal.qll:302,46-55)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Could not resolve type FlowState (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/DataFlowImplLocal.qll:302,76-85)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Could not resolve type PathNode (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/DataFlowImplLocal.qll:171,25-33)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Could not resolve type PathNode (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/DataFlowImplLocal.qll:171,42-50)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Could not resolve type PathNode (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/DataFlowImplLocal.qll:370,9-17)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Could not resolve type PathNode (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/DataFlowImplLocal.qll:383,10-18)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Could not resolve type PathNode (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/DataFlowImplLocal.qll:383,28-36)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Could not resolve type PathNode (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/DataFlowImplLocal.qll:390,31-39)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Could not resolve type PathNode (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/DataFlowImplLocal.qll:390,48-56)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Could not resolve type FlowState (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/DataFlowImpl1.qll:272,35-44)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Could not resolve type FlowState (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/DataFlowImpl1.qll:278,31-40)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Could not resolve type FlowState (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/DataFlowImpl1.qll:286,34-43)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Could not resolve type FlowState (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/DataFlowImpl1.qll:302,46-55)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Could not resolve type FlowState (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/DataFlowImpl1.qll:302,76-85)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Could not resolve type PathNode (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/DataFlowImpl1.qll:171,25-33)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Could not resolve type PathNode (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/DataFlowImpl1.qll:171,42-50)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Could not resolve type PathNode (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/DataFlowImpl1.qll:370,9-17)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Could not resolve type PathNode (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/DataFlowImpl1.qll:383,10-18)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Could not resolve type PathNode (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/DataFlowImpl1.qll:383,28-36)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Could not resolve type PathNode (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/DataFlowImpl1.qll:390,31-39)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Could not resolve type PathNode (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/DataFlowImpl1.qll:390,48-56)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Could not resolve type FlowState (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/DataFlowImpl2.qll:272,35-44)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Could not resolve type FlowState (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/DataFlowImpl2.qll:278,31-40)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Could not resolve type FlowState (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/DataFlowImpl2.qll:286,34-43)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Could not resolve type FlowState (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/DataFlowImpl2.qll:302,46-55)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Could not resolve type FlowState (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/DataFlowImpl2.qll:302,76-85)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Could not resolve type PathNode (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/DataFlowImpl2.qll:171,25-33)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Could not resolve type PathNode (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/DataFlowImpl2.qll:171,42-50)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Could not resolve type PathNode (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/DataFlowImpl2.qll:370,9-17)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Could not resolve type PathNode (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/DataFlowImpl2.qll:383,10-18)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Could not resolve type PathNode (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/DataFlowImpl2.qll:383,28-36)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Could not resolve type PathNode (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/DataFlowImpl2.qll:390,31-39)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Could not resolve type PathNode (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/DataFlowImpl2.qll:390,48-56)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Declaration of class DataFlowImplLocal::PathNode conflicts with existing declarations: type DataFlowImpl::Impl<DataFlowImplLocal::Config>::PathNode from DataFlowImpl.qll:3113 (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/DataFlowImplLocal.qll:337,7-15)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: The type DataFlowImpl::Impl<DataFlowImplLocal::Config>::PathNode, which was brought into scope by this import, conflicts with existing declarations: class DataFlowImplLocal::PathNode from DataFlowImplLocal.qll:337 (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/DataFlowImplLocal.qll:331,1-9)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Declaration of class DataFlowImpl1::PathNode conflicts with existing declarations: type DataFlowImpl::Impl<DataFlowImpl1::Config>::PathNode from DataFlowImpl.qll:3113 (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/DataFlowImpl1.qll:337,7-15)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: The type DataFlowImpl::Impl<DataFlowImpl1::Config>::PathNode, which was brought into scope by this import, conflicts with existing declarations: class DataFlowImpl1::PathNode from DataFlowImpl1.qll:337 (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/DataFlowImpl1.qll:331,1-9)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Declaration of class DataFlowImpl2::PathNode conflicts with existing declarations: type DataFlowImpl::Impl<DataFlowImpl2::Config>::PathNode from DataFlowImpl.qll:3113 (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/DataFlowImpl2.qll:337,7-15)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: The type DataFlowImpl::Impl<DataFlowImpl2::Config>::PathNode, which was brought into scope by this import, conflicts with existing declarations: class DataFlowImpl2::PathNode from DataFlowImpl2.qll:337 (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/DataFlowImpl2.qll:331,1-9)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Declaration of type DataFlowImplLocal::Config::FlowState conflicts with existing declarations: type DataFlowImplCommon::DataFlowImplCommonPublic::FlowStateString::FlowState from DataFlowImplCommon.qll:9 (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/DataFlowImplLocal.qll:270,9-18)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Declaration of type DataFlowImpl1::Config::FlowState conflicts with existing declarations: type DataFlowImplCommon::DataFlowImplCommonPublic::FlowStateString::FlowState from DataFlowImplCommon.qll:9 (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/DataFlowImpl1.qll:270,9-18)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Declaration of type DataFlowImpl2::Config::FlowState conflicts with existing declarations: type DataFlowImplCommon::DataFlowImplCommonPublic::FlowStateString::FlowState from DataFlowImplCommon.qll:9 (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/DataFlowImpl2.qll:270,9-18)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Declaration of predicate TaintTracking::AddTaintDefaults::isBarrier(Node node) conflicts with existing declarations: predicate DataFlowImpl::Config::isBarrier(Node node) from DataFlowImpl.qll:36 (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/tainttracking1/TaintTracking.qll:14,13-22)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: The predicate DataFlowImpl::Config::isBarrier(Node node), which was brought into scope by this import, conflicts with existing declarations: predicate TaintTracking::AddTaintDefaults::isBarrier(Node node) from TaintTracking.qll:14 (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/tainttracking1/TaintTracking.qll:12,3-16)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: The predicate DataFlowImpl::Config::isAdditionalFlowStep(Node node1, Node node2), which was brought into scope by this import, conflicts with existing declarations: predicate TaintTracking::AddTaintDefaults::isAdditionalFlowStep(Node node1, Node node2) from TaintTracking.qll:18 (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/tainttracking1/TaintTracking.qll:12,3-16)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: The predicate DataFlowImpl::Config::allowImplicitRead(Node node, ContentSet c), which was brought into scope by this import, conflicts with existing declarations: predicate TaintTracking::AddTaintDefaults::allowImplicitRead(Node node, ContentSet c) from TaintTracking.qll:23 (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/tainttracking1/TaintTracking.qll:12,3-16)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Declaration of predicate TaintTracking::AddTaintDefaults::isAdditionalFlowStep(Node node1, Node node2) conflicts with existing declarations: predicate DataFlowImpl::Config::isAdditionalFlowStep(Node node1, Node node2) from DataFlowImpl.qll:53 (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/tainttracking1/TaintTracking.qll:18,13-33)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Declaration of predicate TaintTracking::AddTaintDefaults::allowImplicitRead(Node node, ContentSet c) conflicts with existing declarations: predicate DataFlowImpl::Config::allowImplicitRead(Node node, ContentSet c) from DataFlowImpl.qll:65 (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/tainttracking1/TaintTracking.qll:23,13-30)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Default implementations of module signature predicate members are not yet supported. (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/DataFlow.qll:26,3-30,52)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Default implementations of module signature predicate members are not yet supported. (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/DataFlow.qll:32,3-33,54)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Default implementations of module signature predicate members are not yet supported. (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/DataFlow.qll:35,3-36,55)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Default implementations of module signature predicate members are not yet supported. (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/DataFlow.qll:38,3-41,76)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Default implementations of module signature predicate members are not yet supported. (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/DataFlow.qll:43,3-47,74)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Default implementations of module signature predicate members are not yet supported. (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/DataFlow.qll:49,3-54,52)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Default implementations of module signature predicate members are not yet supported. (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/DataFlow.qll:56,3-74,47)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Default implementations of module signature predicate members are not yet supported. (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/DataFlow.qll:76,3-77,79)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Default implementations of module signature predicate members are not yet supported. (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/DataFlow.qll:79,3-80,73)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Default implementations of module signature predicate members are not yet supported. (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/DataFlow.qll:82,3-88,52)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Default implementations of module signature predicate members are not yet supported. (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/DataFlow.qll:107,3-111,52)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Default implementations of module signature predicate members are not yet supported. (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/DataFlow.qll:119,3-120,54)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Default implementations of module signature predicate members are not yet supported. (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/DataFlow.qll:122,3-123,55)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Default implementations of module signature predicate members are not yet supported. (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/DataFlow.qll:125,3-128,76)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Default implementations of module signature predicate members are not yet supported. (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/DataFlow.qll:136,3-140,74)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Default implementations of module signature predicate members are not yet supported. (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/DataFlow.qll:142,3-147,52)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Default implementations of module signature predicate members are not yet supported. (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/DataFlow.qll:149,3-167,47)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Default implementations of module signature predicate members are not yet supported. (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/DataFlow.qll:169,3-170,79)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Default implementations of module signature predicate members are not yet supported. (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/DataFlow.qll:172,3-173,73)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Default implementations of module signature predicate members are not yet supported. (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/DataFlow.qll:175,3-181,52)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: unknown pragma inline_late (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/DataFlowImpl.qll:1339,14-25)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Module AddTaintDefaults does not declare isBarrier/1, required by implemented signature FullStateConfigSig. (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/tainttracking1/TaintTracking.qll:10,3-39)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Module AddTaintDefaults does not declare isAdditionalFlowStep/2, required by implemented signature FullStateConfigSig. (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/tainttracking1/TaintTracking.qll:10,3-39)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Module AddTaintDefaults does not declare allowImplicitRead/2, required by implemented signature FullStateConfigSig. (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/tainttracking1/TaintTracking.qll:10,3-39)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Module Make does not declare PathNode, required by implemented signature DataFlowSig. (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/tainttracking1/TaintTracking.qll:38,52-73)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Module Make does not declare hasFlowPath/2, required by implemented signature DataFlowSig. (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/tainttracking1/TaintTracking.qll:38,52-73)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Module Make does not declare hasFlow/2, required by implemented signature DataFlowSig. (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/tainttracking1/TaintTracking.qll:38,52-73)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Module Make does not declare hasFlowTo/1, required by implemented signature DataFlowSig. (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/tainttracking1/TaintTracking.qll:38,52-73)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Module Make does not declare hasFlowToExpr/1, required by implemented signature DataFlowSig. (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/tainttracking1/TaintTracking.qll:38,52-73)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Module C does not declare isBarrier/1, required by implemented signature FullStateConfigSig. (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/tainttracking1/TaintTracking.qll:44,31-67)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Module C does not declare isAdditionalFlowStep/2, required by implemented signature FullStateConfigSig. (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/tainttracking1/TaintTracking.qll:44,31-67)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Module C does not declare allowImplicitRead/2, required by implemented signature FullStateConfigSig. (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/tainttracking1/TaintTracking.qll:44,31-67)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Module MakeWithState does not declare PathNode, required by implemented signature DataFlowSig. (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/tainttracking1/TaintTracking.qll:54,66-87)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Module MakeWithState does not declare hasFlowPath/2, required by implemented signature DataFlowSig. (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/tainttracking1/TaintTracking.qll:54,66-87)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Module MakeWithState does not declare hasFlow/2, required by implemented signature DataFlowSig. (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/tainttracking1/TaintTracking.qll:54,66-87)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Module MakeWithState does not declare hasFlowTo/1, required by implemented signature DataFlowSig. (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/tainttracking1/TaintTracking.qll:54,66-87)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Module MakeWithState does not declare hasFlowToExpr/1, required by implemented signature DataFlowSig. (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/tainttracking1/TaintTracking.qll:54,66-87)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Module C does not declare isBarrier/1, required by implemented signature FullStateConfigSig. (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/tainttracking1/TaintTracking.qll:59,31-67)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Module C does not declare isAdditionalFlowStep/2, required by implemented signature FullStateConfigSig. (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/tainttracking1/TaintTracking.qll:59,31-67)
+[2023-04-13 01:28:12] [ERROR] execute queries> ERROR: Module C does not declare allowImplicitRead/2, required by implemented signature FullStateConfigSig. (/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmle/code/cpp/dataflow/internal/tainttracking1/TaintTracking.qll:59,31-67)
+[2023-04-13 01:28:12] Sequence stamp origin is -6332437557779456521
+[2023-04-13 01:28:12] Pausing evaluation to close the cache at sequence stamp o+0
+[2023-04-13 01:28:12] The disk cache is freshly trimmed; leave it be.
+[2023-04-13 01:28:12] Unpausing evaluation
+[2023-04-13 01:28:12] Exiting with code 2

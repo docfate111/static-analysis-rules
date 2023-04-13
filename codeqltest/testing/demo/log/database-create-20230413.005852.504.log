@@ -1,0 +1,451 @@
+[2023-04-13 00:58:52] This is codeql database create demo --language=cpp --source-root=src --command=make --overwrite
+[2023-04-13 00:58:52] Log file was started late.
+[2023-04-13 00:58:52] [PROGRESS] database create> Initializing database at /home/t/demo/codeqltest/testing/demo.
+[2023-04-13 00:58:52] Running plumbing command: codeql database init --overwrite --language=cpp --source-root=/home/t/demo/codeqltest/testing/src --allow-missing-source-root=false --allow-already-existing -- /home/t/demo/codeqltest/testing/demo
+[2023-04-13 00:58:52] Calling plumbing command: codeql resolve languages --format=json
+[2023-04-13 00:58:52] [DETAILS] resolve languages> Scanning for [codeql-extractor.yml] from /opt/codeql/.codeqlmanifest.json
+[2023-04-13 00:58:52] [DETAILS] resolve languages> Parsing /opt/codeql/javascript/codeql-extractor.yml.
+[2023-04-13 00:58:52] [DETAILS] resolve languages> Parsing /opt/codeql/properties/codeql-extractor.yml.
+[2023-04-13 00:58:52] [DETAILS] resolve languages> Parsing /opt/codeql/go/codeql-extractor.yml.
+[2023-04-13 00:58:52] [DETAILS] resolve languages> Parsing /opt/codeql/java/codeql-extractor.yml.
+[2023-04-13 00:58:52] [DETAILS] resolve languages> Parsing /opt/codeql/ruby/codeql-extractor.yml.
+[2023-04-13 00:58:52] [DETAILS] resolve languages> Parsing /opt/codeql/xml/codeql-extractor.yml.
+[2023-04-13 00:58:52] [DETAILS] resolve languages> Parsing /opt/codeql/html/codeql-extractor.yml.
+[2023-04-13 00:58:52] [DETAILS] resolve languages> Parsing /opt/codeql/python/codeql-extractor.yml.
+[2023-04-13 00:58:52] [DETAILS] resolve languages> Parsing /opt/codeql/csharp/codeql-extractor.yml.
+[2023-04-13 00:58:52] [DETAILS] resolve languages> Parsing /opt/codeql/cpp/codeql-extractor.yml.
+[2023-04-13 00:58:52] [DETAILS] resolve languages> Parsing /opt/codeql/csv/codeql-extractor.yml.
+[2023-04-13 00:58:52] Plumbing command codeql resolve languages completed:
+                      {
+                        "extractors" : {
+                          "javascript" : [
+                            {
+                              "extractor_root" : "/opt/codeql/javascript",
+                              "extractor_options" : { }
+                            }
+                          ],
+                          "properties" : [
+                            {
+                              "extractor_root" : "/opt/codeql/properties"
+                            }
+                          ],
+                          "go" : [
+                            {
+                              "extractor_root" : "/opt/codeql/go"
+                            }
+                          ],
+                          "java" : [
+                            {
+                              "extractor_root" : "/opt/codeql/java",
+                              "extractor_options" : {
+                                "exclude" : {
+                                  "title" : "A glob excluding files from analysis.",
+                                  "description" : "A glob indicating what files to exclude from the analysis.\n",
+                                  "type" : "string"
+                                }
+                              }
+                            }
+                          ],
+                          "ruby" : [
+                            {
+                              "extractor_root" : "/opt/codeql/ruby"
+                            }
+                          ],
+                          "xml" : [
+                            {
+                              "extractor_root" : "/opt/codeql/xml"
+                            }
+                          ],
+                          "html" : [
+                            {
+                              "extractor_root" : "/opt/codeql/html"
+                            }
+                          ],
+                          "python" : [
+                            {
+                              "extractor_root" : "/opt/codeql/python"
+                            }
+                          ],
+                          "csharp" : [
+                            {
+                              "extractor_root" : "/opt/codeql/csharp",
+                              "extractor_options" : {
+                                "trap" : {
+                                  "title" : "Options pertaining to TRAP.",
+                                  "description" : "Options pertaining to TRAP.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "compression" : {
+                                      "title" : "Controls compression for the TRAP files written by the extractor.",
+                                      "description" : "This option is only intended for use in debugging the extractor. Accepted values are 'brotli' (the default, to write brotli-compressed TRAP), 'gzip', and 'none' (to write uncompressed TRAP).\n",
+                                      "type" : "string",
+                                      "pattern" : "^(none|gzip|brotli)$"
+                                    }
+                                  }
+                                },
+                                "buildless" : {
+                                  "title" : "Whether to use buildless (standalone) extraction.",
+                                  "description" : "A value indicating, which type of extraction the autobuilder should perform. If 'true', then the standalone extractor will be used, otherwise tracing extraction will be performed. The default is 'false'. Note that buildless extraction will generally yield less accurate analysis results, and should only be used in cases where it is not possible to build the code (for example if it uses inaccessible dependencies).\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                },
+                                "cil" : {
+                                  "title" : "Whether to enable CIL extraction.",
+                                  "description" : "A value indicating, whether CIL extraction should be enabled. The default is 'true'.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                }
+                              }
+                            }
+                          ],
+                          "cpp" : [
+                            {
+                              "extractor_root" : "/opt/codeql/cpp"
+                            }
+                          ],
+                          "csv" : [
+                            {
+                              "extractor_root" : "/opt/codeql/csv"
+                            }
+                          ]
+                        }
+                      }
+[2023-04-13 00:58:52] [PROGRESS] database init> Calculating baseline information in /home/t/demo/codeqltest/testing/src
+[2023-04-13 00:58:52] [PROGRESS] database init> Resolving extractor cpp.
+[2023-04-13 00:58:52] [DETAILS] database init> Found candidate extractor root for cpp: /opt/codeql/cpp.
+[2023-04-13 00:58:52] [PROGRESS] database init> Successfully loaded extractor C/C++ (cpp) from /opt/codeql/cpp.
+[2023-04-13 00:58:53] [PROGRESS] database init> Created skeleton CodeQL database at /home/t/demo/codeqltest/testing/demo. This in-progress database is ready to be populated by an extractor.
+[2023-04-13 00:58:53] Plumbing command codeql database init completed.
+[2023-04-13 00:58:53] [PROGRESS] database create> Running build command: [make]
+[2023-04-13 00:58:53] Running plumbing command: codeql database trace-command --working-dir=/home/t/demo/codeqltest/testing/src --index-traceless-dbs --no-db-cluster -- /home/t/demo/codeqltest/testing/demo make
+[2023-04-13 00:58:53] [PROGRESS] database trace-command> Running command in /home/t/demo/codeqltest/testing/src: [make]
+[2023-04-13 00:58:53] [build-stdout] gcc file.cpp -o file -lbsd
+[2023-04-13 00:58:53] Plumbing command codeql database trace-command completed.
+[2023-04-13 00:58:53] [PROGRESS] database create> Finalizing database at /home/t/demo/codeqltest/testing/demo.
+[2023-04-13 00:58:53] Running plumbing command: codeql database finalize --mode=normal --no-db-cluster -- /home/t/demo/codeqltest/testing/demo
+[2023-04-13 00:58:53] [PROGRESS] database finalize> Running TRAP import for CodeQL database at /home/t/demo/codeqltest/testing/demo...
+[2023-04-13 00:58:53] Running plumbing command: codeql dataset import --dbscheme=/opt/codeql/cpp/semmlecode.cpp.dbscheme -- /home/t/demo/codeqltest/testing/demo/db-cpp /home/t/demo/codeqltest/testing/demo/trap/cpp
+[2023-04-13 00:58:53] Clearing disk cache since the version file /home/t/demo/codeqltest/testing/demo/db-cpp/default/cache/version does not exist
+[2023-04-13 00:58:53] Tuple pool not found. Clearing relations with cached strings
+[2023-04-13 00:58:53] Trimming disk cache at /home/t/demo/codeqltest/testing/demo/db-cpp/default/cache in mode brutal.
+[2023-04-13 00:58:53] Sequence stamp origin is -6332445090953203068
+[2023-04-13 00:58:53] Pausing evaluation to hard-clear memory at sequence stamp o+0
+[2023-04-13 00:58:53] Unpausing evaluation
+[2023-04-13 00:58:53] Pausing evaluation to quickly trim disk at sequence stamp o+1
+[2023-04-13 00:58:53] Unpausing evaluation
+[2023-04-13 00:58:53] Pausing evaluation to zealously trim disk at sequence stamp o+2
+[2023-04-13 00:58:53] Unpausing evaluation
+[2023-04-13 00:58:53] Trimming completed (9ms): Purged everything.
+[2023-04-13 00:58:53] Scanning for files in /home/t/demo/codeqltest/testing/demo/trap/cpp
+[2023-04-13 00:58:53] Grouping TRAPs by link target
+[2023-04-13 00:58:53] Scanning cpp_predefined.ee949d85.trap (file.cpp.76f38383_0.trap.tar.br) (1 of 83)
+[2023-04-13 00:58:53] Scanning wordsize.h.c2bb4ad6.trap (file.cpp.76f38383_0.trap.tar.br) (2 of 83)
+[2023-04-13 00:58:53] Scanning timesize.h.b4d06a61.trap (file.cpp.76f38383_0.trap.tar.br) (3 of 83)
+[2023-04-13 00:58:53] Scanning features-time64.h.978731fa.trap (file.cpp.76f38383_0.trap.tar.br) (4 of 83)
+[2023-04-13 00:58:53] Scanning stdc-predef.h.f7594058.trap (file.cpp.76f38383_0.trap.tar.br) (5 of 83)
+[2023-04-13 00:58:53] Scanning long-double.h.80cb2ed2.trap (file.cpp.76f38383_0.trap.tar.br) (6 of 83)
+[2023-04-13 00:58:53] Scanning cdefs.h.b54f8eea.trap (file.cpp.76f38383_0.trap.tar.br) (7 of 83)
+[2023-04-13 00:58:53] Scanning stubs-64.h.f7594058.trap (file.cpp.76f38383_0.trap.tar.br) (8 of 83)
+[2023-04-13 00:58:53] Scanning stubs.h.8d51c0c8.trap (file.cpp.76f38383_0.trap.tar.br) (9 of 83)
+[2023-04-13 00:58:53] Scanning features.h.95852055.trap (file.cpp.76f38383_0.trap.tar.br) (10 of 83)
+[2023-04-13 00:58:53] Scanning libc-header-start.h.bc561bf5.trap (file.cpp.76f38383_0.trap.tar.br) (11 of 83)
+[2023-04-13 00:58:53] Scanning stddef.h.0af3cb1e.trap (file.cpp.76f38383_0.trap.tar.br) (12 of 83)
+[2023-04-13 00:58:53] Scanning stdarg.h.53686ba4.trap (file.cpp.76f38383_0.trap.tar.br) (13 of 83)
+[2023-04-13 00:58:53] Scanning wordsize.h.2fbb426d.trap (file.cpp.76f38383_0.trap.tar.br) (14 of 83)
+[2023-04-13 00:58:53] Scanning timesize.h.21d061f8.trap (file.cpp.76f38383_0.trap.tar.br) (15 of 83)
+[2023-04-13 00:58:53] Scanning typesizes.h.adb4c836.trap (file.cpp.76f38383_0.trap.tar.br) (16 of 83)
+[2023-04-13 00:58:53] Scanning time64.h.eafc40f8.trap (file.cpp.76f38383_0.trap.tar.br) (17 of 83)
+[2023-04-13 00:58:53] Scanning types.h.67b53379.trap (file.cpp.76f38383_0.trap.tar.br) (18 of 83)
+[2023-04-13 00:58:53] Scanning __mbstate_t.h.6fc019d7.trap (file.cpp.76f38383_0.trap.tar.br) (19 of 83)
+[2023-04-13 00:58:53] Scanning __fpos_t.h.ba61579f.trap (file.cpp.76f38383_0.trap.tar.br) (20 of 83)
+[2023-04-13 00:58:53] Scanning __fpos64_t.h.76bfd63d.trap (file.cpp.76f38383_0.trap.tar.br) (21 of 83)
+[2023-04-13 00:58:53] Scanning __FILE.h.f9cbb1fb.trap (file.cpp.76f38383_0.trap.tar.br) (22 of 83)
+[2023-04-13 00:58:53] Scanning FILE.h.782e13f7.trap (file.cpp.76f38383_0.trap.tar.br) (23 of 83)
+[2023-04-13 00:58:53] Scanning struct_FILE.h.be5025e2.trap (file.cpp.76f38383_0.trap.tar.br) (24 of 83)
+[2023-04-13 00:58:53] Scanning cookie_io_functions_t.h.9d9f67f7.trap (file.cpp.76f38383_0.trap.tar.br) (25 of 83)
+[2023-04-13 00:58:53] Scanning stdio_lim.h.04805dca.trap (file.cpp.76f38383_0.trap.tar.br) (26 of 83)
+[2023-04-13 00:58:53] Scanning long-double.h.edcb2669.trap (file.cpp.76f38383_0.trap.tar.br) (27 of 83)
+[2023-04-13 00:58:53] Scanning floatn-common.h.1dd762de.trap (file.cpp.76f38383_0.trap.tar.br) (28 of 83)
+[2023-04-13 00:58:53] Scanning floatn.h.1fc5ee82.trap (file.cpp.76f38383_0.trap.tar.br) (29 of 83)
+[2023-04-13 00:58:53] Scanning stdio.h.ef720bd4.trap (file.cpp.76f38383_0.trap.tar.br) (30 of 83)
+[2023-04-13 00:58:53] Scanning os_defines.h.99c96502.trap (file.cpp.76f38383_0.trap.tar.br) (31 of 83)
+[2023-04-13 00:58:53] Scanning cpu_defines.h.f0604f99.trap (file.cpp.76f38383_0.trap.tar.br) (32 of 83)
+[2023-04-13 00:58:53] Scanning pstl_config.h.5e324e76.trap (file.cpp.76f38383_0.trap.tar.br) (33 of 83)
+[2023-04-13 00:58:53] Scanning c++config.h.538cda1d.trap (file.cpp.76f38383_0.trap.tar.br) (34 of 83)
+[2023-04-13 00:58:53] Scanning libc-header-start.h.f9b5be12.trap (file.cpp.76f38383_0.trap.tar.br) (35 of 83)
+[2023-04-13 00:58:53] Scanning stddef.h.0a5a9e51.trap (file.cpp.76f38383_0.trap.tar.br) (36 of 83)
+[2023-04-13 00:58:53] Scanning waitflags.h.caa2269d.trap (file.cpp.76f38383_0.trap.tar.br) (37 of 83)
+[2023-04-13 00:58:53] Scanning waitstatus.h.84780685.trap (file.cpp.76f38383_0.trap.tar.br) (38 of 83)
+[2023-04-13 00:58:53] Scanning __locale_t.h.d4060d08.trap (file.cpp.76f38383_0.trap.tar.br) (39 of 83)
+[2023-04-13 00:58:53] Scanning locale_t.h.d5f2060f.trap (file.cpp.76f38383_0.trap.tar.br) (40 of 83)
+[2023-04-13 00:58:53] Scanning clock_t.h.457468a4.trap (file.cpp.76f38383_0.trap.tar.br) (41 of 83)
+[2023-04-13 00:58:53] Scanning clockid_t.h.5b277e1c.trap (file.cpp.76f38383_0.trap.tar.br) (42 of 83)
+[2023-04-13 00:58:53] Scanning time_t.h.4c45318b.trap (file.cpp.76f38383_0.trap.tar.br) (43 of 83)
+[2023-04-13 00:58:53] Scanning timer_t.h.b08111ff.trap (file.cpp.76f38383_0.trap.tar.br) (44 of 83)
+[2023-04-13 00:58:53] Scanning stddef.h.a01f9d18.trap (file.cpp.76f38383_0.trap.tar.br) (45 of 83)
+[2023-04-13 00:58:53] Scanning stdint-intn.h.c8a5d745.trap (file.cpp.76f38383_0.trap.tar.br) (46 of 83)
+[2023-04-13 00:58:53] Scanning endianness.h.2fa82588.trap (file.cpp.76f38383_0.trap.tar.br) (47 of 83)
+[2023-04-13 00:58:53] Scanning endian.h.50785b28.trap (file.cpp.76f38383_0.trap.tar.br) (48 of 83)
+[2023-04-13 00:58:53] Scanning byteswap.h.b5780c17.trap (file.cpp.76f38383_0.trap.tar.br) (49 of 83)
+[2023-04-13 00:58:53] Scanning uintn-identity.h.18a33803.trap (file.cpp.76f38383_0.trap.tar.br) (50 of 83)
+[2023-04-13 00:58:53] Scanning endian.h.a1317984.trap (file.cpp.76f38383_0.trap.tar.br) (51 of 83)
+[2023-04-13 00:58:53] Scanning select.h.4b1b9acd.trap (file.cpp.76f38383_0.trap.tar.br) (52 of 83)
+[2023-04-13 00:58:53] Scanning __sigset_t.h.ab7fb715.trap (file.cpp.76f38383_0.trap.tar.br) (53 of 83)
+[2023-04-13 00:58:53] Scanning sigset_t.h.2cd87ca9.trap (file.cpp.76f38383_0.trap.tar.br) (54 of 83)
+[2023-04-13 00:58:53] Scanning struct_timeval.h.856f03fa.trap (file.cpp.76f38383_0.trap.tar.br) (55 of 83)
+[2023-04-13 00:58:53] Scanning struct_timespec.h.dbbe428b.trap (file.cpp.76f38383_0.trap.tar.br) (56 of 83)
+[2023-04-13 00:58:53] Scanning select.h.f900f276.trap (file.cpp.76f38383_0.trap.tar.br) (57 of 83)
+[2023-04-13 00:58:53] Scanning wordsize.h.4db84874.trap (file.cpp.76f38383_0.trap.tar.br) (58 of 83)
+[2023-04-13 00:58:53] Scanning pthreadtypes-arch.h.5872b086.trap (file.cpp.76f38383_0.trap.tar.br) (59 of 83)
+[2023-04-13 00:58:53] Scanning atomic_wide_counter.h.126830bf.trap (file.cpp.76f38383_0.trap.tar.br) (60 of 83)
+[2023-04-13 00:58:53] Scanning struct_mutex.h.d1c7bccb.trap (file.cpp.76f38383_0.trap.tar.br) (61 of 83)
+[2023-04-13 00:58:53] Scanning struct_rwlock.h.fa0ba2f2.trap (file.cpp.76f38383_0.trap.tar.br) (62 of 83)
+[2023-04-13 00:58:53] Scanning thread-shared-types.h.f8a96a1c.trap (file.cpp.76f38383_0.trap.tar.br) (63 of 83)
+[2023-04-13 00:58:53] Scanning pthreadtypes.h.55dee62b.trap (file.cpp.76f38383_0.trap.tar.br) (64 of 83)
+[2023-04-13 00:58:53] Scanning types.h.0f6030f4.trap (file.cpp.76f38383_0.trap.tar.br) (65 of 83)
+[2023-04-13 00:58:53] Scanning stddef.h.87c363e8.trap (file.cpp.76f38383_0.trap.tar.br) (66 of 83)
+[2023-04-13 00:58:53] Scanning alloca.h.0c8c3cf6.trap (file.cpp.76f38383_0.trap.tar.br) (67 of 83)
+[2023-04-13 00:58:53] Scanning stdlib-float.h.033b4eee.trap (file.cpp.76f38383_0.trap.tar.br) (68 of 83)
+[2023-04-13 00:58:53] Scanning stdlib.h.73432429.trap (file.cpp.76f38383_0.trap.tar.br) (69 of 83)
+[2023-04-13 00:58:53] Scanning std_abs.h.ef80a09d.trap (file.cpp.76f38383_0.trap.tar.br) (70 of 83)
+[2023-04-13 00:58:53] Scanning cstdlib.d98e1245.trap (file.cpp.76f38383_0.trap.tar.br) (71 of 83)
+[2023-04-13 00:58:53] Scanning stdlib.h.5977a7fa.trap (file.cpp.76f38383_0.trap.tar.br) (72 of 83)
+[2023-04-13 00:58:53] Scanning libc-header-start.h.7eb5f7c1.trap (file.cpp.76f38383_0.trap.tar.br) (73 of 83)
+[2023-04-13 00:58:53] Scanning stddef.h.d540c6d6.trap (file.cpp.76f38383_0.trap.tar.br) (74 of 83)
+[2023-04-13 00:58:53] Scanning stddef.h.ed5b9ff8.trap (file.cpp.76f38383_0.trap.tar.br) (75 of 83)
+[2023-04-13 00:58:53] Scanning strings.h.4d281b71.trap (file.cpp.76f38383_0.trap.tar.br) (76 of 83)
+[2023-04-13 00:58:53] Scanning string.h.2e3169f6.trap (file.cpp.76f38383_0.trap.tar.br) (77 of 83)
+[2023-04-13 00:58:53] Scanning cdefs.h.babdcc81.trap (file.cpp.76f38383_0.trap.tar.br) (78 of 83)
+[2023-04-13 00:58:53] Scanning string.h.61324993.trap (file.cpp.76f38383_0.trap.tar.br) (79 of 83)
+[2023-04-13 00:58:53] Scanning file.cpp.76f38383.trap (file.cpp.76f38383_0.trap.tar.br) (80 of 83)
+[2023-04-13 00:58:53] Scanning 41125992_0.trap.br (81 of 83)
+[2023-04-13 00:58:53] Scanning file.trap.br (82 of 83)
+[2023-04-13 00:58:53] Scanning sourceLocationPrefix.trap.gz (83 of 83)
+[2023-04-13 00:58:53] Assembling file.link with 81 files (1 of 2)
+[2023-04-13 00:58:53] Assembling no link target with 2 files (2 of 2)
+[2023-04-13 00:58:53] Importing cpp_predefined.ee949d85.trap (file.cpp.76f38383_0.trap.tar.br) for no link target (1 of 83)
+[2023-04-13 00:58:54] Importing wordsize.h.c2bb4ad6.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (2 of 83)
+[2023-04-13 00:58:54] Importing timesize.h.b4d06a61.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (3 of 83)
+[2023-04-13 00:58:54] Importing features-time64.h.978731fa.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (4 of 83)
+[2023-04-13 00:58:54] Importing stdc-predef.h.f7594058.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (5 of 83)
+[2023-04-13 00:58:54] Importing long-double.h.80cb2ed2.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (6 of 83)
+[2023-04-13 00:58:54] Importing cdefs.h.b54f8eea.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (7 of 83)
+[2023-04-13 00:58:54] Importing stubs-64.h.f7594058.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (8 of 83)
+[2023-04-13 00:58:54] Importing stubs.h.8d51c0c8.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (9 of 83)
+[2023-04-13 00:58:54] Importing features.h.95852055.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (10 of 83)
+[2023-04-13 00:58:54] Importing libc-header-start.h.bc561bf5.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (11 of 83)
+[2023-04-13 00:58:54] Importing stddef.h.0af3cb1e.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (12 of 83)
+[2023-04-13 00:58:54] Importing stdarg.h.53686ba4.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (13 of 83)
+[2023-04-13 00:58:54] Importing wordsize.h.2fbb426d.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (14 of 83)
+[2023-04-13 00:58:54] Importing timesize.h.21d061f8.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (15 of 83)
+[2023-04-13 00:58:54] Importing typesizes.h.adb4c836.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (16 of 83)
+[2023-04-13 00:58:54] Importing time64.h.eafc40f8.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (17 of 83)
+[2023-04-13 00:58:54] Importing types.h.67b53379.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (18 of 83)
+[2023-04-13 00:58:54] Importing __mbstate_t.h.6fc019d7.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (19 of 83)
+[2023-04-13 00:58:54] Importing __fpos_t.h.ba61579f.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (20 of 83)
+[2023-04-13 00:58:54] Importing __fpos64_t.h.76bfd63d.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (21 of 83)
+[2023-04-13 00:58:54] Importing __FILE.h.f9cbb1fb.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (22 of 83)
+[2023-04-13 00:58:54] Importing FILE.h.782e13f7.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (23 of 83)
+[2023-04-13 00:58:54] Importing struct_FILE.h.be5025e2.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (24 of 83)
+[2023-04-13 00:58:54] Importing cookie_io_functions_t.h.9d9f67f7.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (25 of 83)
+[2023-04-13 00:58:54] Importing stdio_lim.h.04805dca.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (26 of 83)
+[2023-04-13 00:58:54] Importing long-double.h.edcb2669.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (27 of 83)
+[2023-04-13 00:58:54] Importing floatn-common.h.1dd762de.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (28 of 83)
+[2023-04-13 00:58:54] Importing floatn.h.1fc5ee82.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (29 of 83)
+[2023-04-13 00:58:54] Importing stdio.h.ef720bd4.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (30 of 83)
+[2023-04-13 00:58:54] Importing os_defines.h.99c96502.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (31 of 83)
+[2023-04-13 00:58:54] Importing cpu_defines.h.f0604f99.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (32 of 83)
+[2023-04-13 00:58:54] Importing pstl_config.h.5e324e76.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (33 of 83)
+[2023-04-13 00:58:54] Importing c++config.h.538cda1d.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (34 of 83)
+[2023-04-13 00:58:54] Importing libc-header-start.h.f9b5be12.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (35 of 83)
+[2023-04-13 00:58:54] Importing stddef.h.0a5a9e51.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (36 of 83)
+[2023-04-13 00:58:54] Importing waitflags.h.caa2269d.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (37 of 83)
+[2023-04-13 00:58:54] Importing waitstatus.h.84780685.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (38 of 83)
+[2023-04-13 00:58:54] Importing __locale_t.h.d4060d08.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (39 of 83)
+[2023-04-13 00:58:54] Importing locale_t.h.d5f2060f.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (40 of 83)
+[2023-04-13 00:58:54] Importing clock_t.h.457468a4.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (41 of 83)
+[2023-04-13 00:58:54] Importing clockid_t.h.5b277e1c.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (42 of 83)
+[2023-04-13 00:58:54] Importing time_t.h.4c45318b.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (43 of 83)
+[2023-04-13 00:58:54] Importing timer_t.h.b08111ff.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (44 of 83)
+[2023-04-13 00:58:54] Importing stddef.h.a01f9d18.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (45 of 83)
+[2023-04-13 00:58:54] Importing stdint-intn.h.c8a5d745.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (46 of 83)
+[2023-04-13 00:58:54] Importing endianness.h.2fa82588.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (47 of 83)
+[2023-04-13 00:58:54] Importing endian.h.50785b28.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (48 of 83)
+[2023-04-13 00:58:54] Importing byteswap.h.b5780c17.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (49 of 83)
+[2023-04-13 00:58:54] Importing uintn-identity.h.18a33803.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (50 of 83)
+[2023-04-13 00:58:54] Importing endian.h.a1317984.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (51 of 83)
+[2023-04-13 00:58:54] Importing select.h.4b1b9acd.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (52 of 83)
+[2023-04-13 00:58:54] Importing __sigset_t.h.ab7fb715.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (53 of 83)
+[2023-04-13 00:58:54] Importing sigset_t.h.2cd87ca9.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (54 of 83)
+[2023-04-13 00:58:54] Importing struct_timeval.h.856f03fa.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (55 of 83)
+[2023-04-13 00:58:54] Importing struct_timespec.h.dbbe428b.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (56 of 83)
+[2023-04-13 00:58:54] Importing select.h.f900f276.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (57 of 83)
+[2023-04-13 00:58:54] Importing wordsize.h.4db84874.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (58 of 83)
+[2023-04-13 00:58:54] Importing pthreadtypes-arch.h.5872b086.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (59 of 83)
+[2023-04-13 00:58:54] Importing atomic_wide_counter.h.126830bf.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (60 of 83)
+[2023-04-13 00:58:54] Importing struct_mutex.h.d1c7bccb.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (61 of 83)
+[2023-04-13 00:58:54] Importing struct_rwlock.h.fa0ba2f2.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (62 of 83)
+[2023-04-13 00:58:54] Importing thread-shared-types.h.f8a96a1c.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (63 of 83)
+[2023-04-13 00:58:54] Importing pthreadtypes.h.55dee62b.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (64 of 83)
+[2023-04-13 00:58:54] Importing types.h.0f6030f4.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (65 of 83)
+[2023-04-13 00:58:54] Importing stddef.h.87c363e8.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (66 of 83)
+[2023-04-13 00:58:54] Importing alloca.h.0c8c3cf6.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (67 of 83)
+[2023-04-13 00:58:54] Importing stdlib-float.h.033b4eee.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (68 of 83)
+[2023-04-13 00:58:54] Importing stdlib.h.73432429.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (69 of 83)
+[2023-04-13 00:58:54] Importing std_abs.h.ef80a09d.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (70 of 83)
+[2023-04-13 00:58:54] Importing cstdlib.d98e1245.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (71 of 83)
+[2023-04-13 00:58:54] Importing stdlib.h.5977a7fa.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (72 of 83)
+[2023-04-13 00:58:54] Importing libc-header-start.h.7eb5f7c1.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (73 of 83)
+[2023-04-13 00:58:54] Importing stddef.h.d540c6d6.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (74 of 83)
+[2023-04-13 00:58:54] Importing stddef.h.ed5b9ff8.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (75 of 83)
+[2023-04-13 00:58:54] Importing strings.h.4d281b71.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (76 of 83)
+[2023-04-13 00:58:54] Importing string.h.2e3169f6.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (77 of 83)
+[2023-04-13 00:58:54] Importing cdefs.h.babdcc81.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (78 of 83)
+[2023-04-13 00:58:54] Importing string.h.61324993.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (79 of 83)
+[2023-04-13 00:58:54] Importing file.cpp.76f38383.trap (file.cpp.76f38383_0.trap.tar.br) for file.link (80 of 83)
+[2023-04-13 00:58:54] Importing 41125992_0.trap.br for file.link (81 of 83)
+[2023-04-13 00:58:54] Importing file.trap.br for file.link (82 of 83)
+[2023-04-13 00:58:54] Importing sourceLocationPrefix.trap.gz for no link target (83 of 83)
+[2023-04-13 00:58:54] Merging 1 fragment for builtintypes.
+[2023-04-13 00:58:54] Merging 1 fragment for unspecifiedtype.
+[2023-04-13 00:58:54] Merging 1 fragment for files.
+[2023-04-13 00:58:54] Merging 1 fragment for locations_default.
+[2023-04-13 00:58:54] Merging 1 fragment for link_targets.
+[2023-04-13 00:58:54] Merging 1 fragment for locations_stmt.
+[2023-04-13 00:58:54] Merging 1 fragment for locations_expr.
+[2023-04-13 00:58:54] Merging 1 fragment for usertypes.
+[2023-04-13 00:58:54] Merging 1 fragment for functions.
+[2023-04-13 00:58:54] Merging 1 fragment for link_parent.
+[2023-04-13 00:58:54] Merging 1 fragment for derivedtypes.
+[2023-04-13 00:58:54] Merging 1 fragment for pointerishsize.
+[2023-04-13 00:58:54] Merging 1 fragment for function_return_type.
+[2023-04-13 00:58:54] Merging 1 fragment for params.
+[2023-04-13 00:58:54] Merging 1 fragment for member.
+[2023-04-13 00:58:54] Merging 1 fragment for usertypesize.
+[2023-04-13 00:58:54] Merging 1 fragment for is_pod_class.
+[2023-04-13 00:58:54] Merging 1 fragment for is_standard_layout_class.
+[2023-04-13 00:58:54] Merging 1 fragment for is_complete.
+[2023-04-13 00:58:54] Merging 1 fragment for membervariables.
+[2023-04-13 00:58:54] Merging 1 fragment for fieldoffsets.
+[2023-04-13 00:58:54] Merging 1 fragment for var_decls.
+[2023-04-13 00:58:54] Merging 1 fragment for var_def.
+[2023-04-13 00:58:54] Merging 1 fragment for namespaces.
+[2023-04-13 00:58:54] Merging 1 fragment for specialnamequalifyingelements.
+[2023-04-13 00:58:54] Merging 1 fragment for mangled_name.
+[2023-04-13 00:58:54] Merging 1 fragment for specifiers.
+[2023-04-13 00:58:54] Merging 1 fragment for typespecifiers.
+[2023-04-13 00:58:54] Merging 1 fragment for numlines.
+[2023-04-13 00:58:54] Merging 1 fragment for preprocdirects.
+[2023-04-13 00:58:54] Merging 1 fragment for preproctext.
+[2023-04-13 00:58:54] Merging 1 fragment for preproctrue.
+[2023-04-13 00:58:54] Merging 1 fragment for macroinvocations.
+[2023-04-13 00:58:54] Merging 1 fragment for comments.
+[2023-04-13 00:58:54] Merging 1 fragment for commentbinding.
+[2023-04-13 00:58:54] Merging 1 fragment for containerparent.
+[2023-04-13 00:58:54] Merging 1 fragment for folders.
+[2023-04-13 00:58:54] Merging 1 fragment for preprocpair.
+[2023-04-13 00:58:54] Merging 1 fragment for includes.
+[2023-04-13 00:58:54] Merging 1 fragment for preprocfalse.
+[2023-04-13 00:58:54] Merging 1 fragment for macro_argument_unexpanded.
+[2023-04-13 00:58:54] Merging 1 fragment for macro_argument_expanded.
+[2023-04-13 00:58:54] Merging 1 fragment for macroparent.
+[2023-04-13 00:58:54] Merging 1 fragment for typedefbase.
+[2023-04-13 00:58:54] Merging 1 fragment for type_decls.
+[2023-04-13 00:58:54] Merging 1 fragment for type_decl_top.
+[2023-04-13 00:58:54] Merging 1 fragment for arraysizes.
+[2023-04-13 00:58:54] Merging 1 fragment for type_mentions.
+[2023-04-13 00:58:54] Merging 1 fragment for compgenerated.
+[2023-04-13 00:58:54] Merging 1 fragment for fun_decls.
+[2023-04-13 00:58:54] Merging 1 fragment for fun_decl_empty_throws.
+[2023-04-13 00:58:54] Merging 1 fragment for param_decl_bind.
+[2023-04-13 00:58:54] Merging 1 fragment for inmacroexpansion.
+[2023-04-13 00:58:54] Merging 1 fragment for type_def.
+[2023-04-13 00:58:54] Merging 1 fragment for values.
+[2023-04-13 00:58:54] Merging 1 fragment for exprs.
+[2023-04-13 00:58:54] Merging 1 fragment for expr_types.
+[2023-04-13 00:58:54] Merging 1 fragment for valuebind.
+[2023-04-13 00:58:54] Merging 1 fragment for macrolocationbind.
+[2023-04-13 00:58:54] Merging 1 fragment for funspecifiers.
+[2023-04-13 00:58:54] Merging 1 fragment for exprconv.
+[2023-04-13 00:58:54] Merging 1 fragment for conversionkinds.
+[2023-04-13 00:58:54] Merging 1 fragment for varspecifiers.
+[2023-04-13 00:58:54] Merging 1 fragment for valuetext.
+[2023-04-13 00:58:54] Merging 1 fragment for sizeof_bind.
+[2023-04-13 00:58:54] Merging 1 fragment for exprparents.
+[2023-04-13 00:58:54] Merging 1 fragment for routinetypes.
+[2023-04-13 00:58:54] Merging 1 fragment for routinetypeargs.
+[2023-04-13 00:58:54] Merging 1 fragment for attributes.
+[2023-04-13 00:58:54] Merging 1 fragment for attribute_arg_value.
+[2023-04-13 00:58:54] Merging 1 fragment for attribute_args.
+[2023-04-13 00:58:54] Merging 1 fragment for typeattributes.
+[2023-04-13 00:58:54] Merging 1 fragment for globalvariables.
+[2023-04-13 00:58:54] Merging 1 fragment for fun_decl_specifiers.
+[2023-04-13 00:58:54] Merging 1 fragment for fun_decl_noexcept.
+[2023-04-13 00:58:54] Merging 1 fragment for attribute_arg_constant.
+[2023-04-13 00:58:54] Merging 1 fragment for funcattributes.
+[2023-04-13 00:58:54] Merging 1 fragment for var_decl_specifiers.
+[2023-04-13 00:58:54] Merging 1 fragment for namespacembrs.
+[2023-04-13 00:58:54] Merging 1 fragment for fun_def.
+[2023-04-13 00:58:54] Merging 1 fragment for fun_decl_empty_noexcept.
+[2023-04-13 00:58:54] Merging 1 fragment for stmts.
+[2023-04-13 00:58:54] Merging 1 fragment for funbind.
+[2023-04-13 00:58:54] Merging 1 fragment for stmtparents.
+[2023-04-13 00:58:54] Merging 1 fragment for blockscope.
+[2023-04-13 00:58:54] Merging 1 fragment for function_entry_point.
+[2023-04-13 00:58:54] Merging 1 fragment for affectedbymacroexpansion.
+[2023-04-13 00:58:54] Merging 1 fragment for stmt_decl_bind.
+[2023-04-13 00:58:54] Merging 1 fragment for decltypes.
+[2023-04-13 00:58:54] Merging 1 fragment for namespace_decls.
+[2023-04-13 00:58:54] Merging 1 fragment for namespace_inline.
+[2023-04-13 00:58:54] Merging 1 fragment for usings.
+[2023-04-13 00:58:54] Merging 1 fragment for using_container.
+[2023-04-13 00:58:54] Merging 1 fragment for iscall.
+[2023-04-13 00:58:54] Merging 1 fragment for stmt_decl_entry_bind.
+[2023-04-13 00:58:54] Merging 1 fragment for expr_isload.
+[2023-04-13 00:58:54] Merging 1 fragment for varbind.
+[2023-04-13 00:58:54] Merging 1 fragment for expr_cond_guard.
+[2023-04-13 00:58:54] Merging 1 fragment for expr_cond_true.
+[2023-04-13 00:58:54] Merging 1 fragment for expr_cond_false.
+[2023-04-13 00:58:54] Merging 1 fragment for localvariables.
+[2023-04-13 00:58:54] Merging 1 fragment for fileannotations.
+[2023-04-13 00:58:54] Merging 1 fragment for if_then.
+[2023-04-13 00:58:54] Merging 1 fragment for expr_ancestor.
+[2023-04-13 00:58:54] Merging 1 fragment for initialisers.
+[2023-04-13 00:58:54] Merging 1 fragment for compilations.
+[2023-04-13 00:58:54] Merging 1 fragment for compilation_args.
+[2023-04-13 00:58:54] Merging 1 fragment for compilation_compiling_files.
+[2023-04-13 00:58:54] Merging 1 fragment for diagnostic_for.
+[2023-04-13 00:58:54] Merging 1 fragment for compilation_time.
+[2023-04-13 00:58:54] Merging 1 fragment for compilation_finished.
+[2023-04-13 00:58:54] Merging 1 fragment for diagnostics.
+[2023-04-13 00:58:54] Merging 1 fragment for sourceLocationPrefix.
+[2023-04-13 00:58:54] Saving string and id pools to disk.
+[2023-04-13 00:58:54] Finished importing trap files.
+[2023-04-13 00:58:54] Pausing evaluation to close the cache at sequence stamp o+3
+[2023-04-13 00:58:54] The disk cache is freshly trimmed; leave it be.
+[2023-04-13 00:58:54] Unpausing evaluation
+[2023-04-13 00:58:54] Plumbing command codeql dataset import completed.
+[2023-04-13 00:58:54] [PROGRESS] database finalize> TRAP import complete (1.1s).
+[2023-04-13 00:58:54] Running plumbing command: codeql database cleanup --mode=normal -- /home/t/demo/codeqltest/testing/demo
+[2023-04-13 00:58:54] [PROGRESS] database cleanup> Cleaning up existing TRAP files after import...
+[2023-04-13 00:58:54] [PROGRESS] database cleanup> TRAP files cleaned up (2ms).
+[2023-04-13 00:58:54] [PROGRESS] database cleanup> Cleaning up scratch directory...
+[2023-04-13 00:58:54] [PROGRESS] database cleanup> Scratch directory cleaned up (1ms).
+[2023-04-13 00:58:54] Running plumbing command: codeql dataset cleanup --mode=normal -- /home/t/demo/codeqltest/testing/demo/db-cpp
+[2023-04-13 00:58:54] [PROGRESS] dataset cleanup> Cleaning up dataset in /home/t/demo/codeqltest/testing/demo/db-cpp.
+[2023-04-13 00:58:54] Trimming disk cache at /home/t/demo/codeqltest/testing/demo/db-cpp/default/cache in mode normal.
+[2023-04-13 00:58:54] Sequence stamp origin is -6332445086456233208
+[2023-04-13 00:58:54] Pausing evaluation to zealously trim disk at sequence stamp o+0
+[2023-04-13 00:58:54] Unpausing evaluation
+[2023-04-13 00:58:54] Trimming completed (2ms): Trimmed disposable data from cache.
+[2023-04-13 00:58:54] Pausing evaluation to close the cache at sequence stamp o+1
+[2023-04-13 00:58:54] The disk cache is freshly trimmed; leave it be.
+[2023-04-13 00:58:54] Unpausing evaluation
+[2023-04-13 00:58:54] [PROGRESS] dataset cleanup> Trimmed disposable data from cache.
+[2023-04-13 00:58:54] [PROGRESS] dataset cleanup> Finalizing dataset in /home/t/demo/codeqltest/testing/demo/db-cpp
+[2023-04-13 00:58:54] [DETAILS] dataset cleanup> Finished deleting ID pool from /home/t/demo/codeqltest/testing/demo/db-cpp (2ms).
+[2023-04-13 00:58:54] Plumbing command codeql dataset cleanup completed.
+[2023-04-13 00:58:54] Plumbing command codeql database cleanup completed with status 0.
+[2023-04-13 00:58:54] Plumbing command codeql database finalize completed.
+[2023-04-13 00:58:54] [PROGRESS] database create> Successfully created database at /home/t/demo/codeqltest/testing/demo.
+[2023-04-13 00:58:54] Terminating normally.

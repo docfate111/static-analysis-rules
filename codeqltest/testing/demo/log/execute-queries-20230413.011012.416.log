@@ -1,0 +1,219 @@
+[2023-04-13 01:10:12] This is codeql execute queries -J-Xmx1471M --off-heap-ram=1471 --verbosity=progress --logdir=/home/t/demo/codeqltest/testing/demo/log --evaluator-log-level=5 --insecurely-execute-ml-model-checksums= --warnings=show --qlconfig-file=/home/t/demo/codeqltest/testing/qlconfig.yml -- /home/t/demo/codeqltest/testing/demo/db-cpp /home/t/demo/codeqltest/testing/live.ql
+[2023-04-13 01:10:12] Calling plumbing command: codeql resolve queries --qlconfig-file=/home/t/demo/codeqltest/testing/qlconfig.yml --format=json -- /home/t/demo/codeqltest/testing/live.ql
+[2023-04-13 01:10:12] [PROGRESS] resolve queries> Recording pack reference docfate111/testing at /home/t/demo/codeqltest/testing.
+[2023-04-13 01:10:12] Plumbing command codeql resolve queries completed:
+                      [
+                        "/home/t/demo/codeqltest/testing/live.ql"
+                      ]
+[2023-04-13 01:10:12] Refusing fancy output: The terminal is not an xterm: tmux-256color
+[2023-04-13 01:10:12] Creating executor with 1 threads.
+[2023-04-13 01:10:12] Calling plumbing command: codeql resolve extensions --qlconfig-file=/home/t/demo/codeqltest/testing/qlconfig.yml --insecurely-execute-ml-model-checksums= /home/t/demo/codeqltest/testing/live.ql
+[2023-04-13 01:10:12] Calling plumbing command: codeql resolve queries --qlconfig-file=/home/t/demo/codeqltest/testing/qlconfig.yml --format startingpacks -- /home/t/demo/codeqltest/testing/live.ql
+[2023-04-13 01:10:12] [PROGRESS] resolve queries> Recording pack reference docfate111/testing at /home/t/demo/codeqltest/testing.
+[2023-04-13 01:10:12] Plumbing command codeql resolve queries completed:
+                      [
+                        "/home/t/demo/codeqltest/testing"
+                      ]
+[2023-04-13 01:10:12] Plumbing command codeql resolve extensions completed:
+                      {
+                        "models" : [ ],
+                        "data" : { }
+                      }
+[2023-04-13 01:10:12] [DETAILS] execute queries> Did not find any ML models.
+[2023-04-13 01:10:12] [SPAMMIER] execute queries> Data extensions for query 'live.ql' in 'docfate111/testing':
+                      {}
+[2023-04-13 01:10:12] Calling plumbing command: codeql resolve library-path --qlconfig-file=/home/t/demo/codeqltest/testing/qlconfig.yml --query=/home/t/demo/codeqltest/testing/live.ql --format=json
+[2023-04-13 01:10:12] [DETAILS] resolve library-path> Resolving query at normalized path /home/t/demo/codeqltest/testing/live.ql.
+[2023-04-13 01:10:12] [DETAILS] resolve library-path> Found enclosing pack 'docfate111/testing' at /home/t/demo/codeqltest/testing.
+[2023-04-13 01:10:12] [DETAILS] resolve library-path> Adding compilation cache at /home/t/demo/codeqltest/testing/.cache.
+[2023-04-13 01:10:12] [DETAILS] resolve library-path> Resolving library dependencies from /home/t/demo/codeqltest/testing/qlpack.yml.
+[2023-04-13 01:10:12] [DETAILS] resolve library-path> QL pack dependencies for /home/t/demo/codeqltest/testing resolved OK.
+[2023-04-13 01:10:12] [DETAILS] resolve library-path> Found dbscheme through QL packs: /home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmlecode.cpp.dbscheme.
+[2023-04-13 01:10:13] Plumbing command codeql resolve library-path completed:
+                      {
+                        "libraryPath" : [
+                          "/home/t/demo/codeqltest/testing",
+                          "/home/t/.codeql/packages/codeql/cpp-all/0.6.1",
+                          "/home/t/.codeql/packages/codeql/ssa/0.0.14",
+                          "/home/t/.codeql/packages/codeql/tutorial/0.0.7"
+                        ],
+                        "dbscheme" : "/home/t/.codeql/packages/codeql/cpp-all/0.6.1/semmlecode.cpp.dbscheme",
+                        "compilationCache" : [
+                          "/home/t/demo/codeqltest/testing/.cache"
+                        ],
+                        "relativeName" : "docfate111/testing/live.ql",
+                        "qlPackName" : "docfate111/testing"
+                      }
+[2023-04-13 01:10:13] [PROGRESS] execute queries> Compiling query plan for /home/t/demo/codeqltest/testing/live.ql.
+[2023-04-13 01:10:13] [DETAILS] execute queries> Resolving imports for /home/t/demo/codeqltest/testing/live.ql.
+[2023-04-13 01:10:13] Resolved file set for /home/t/demo/codeqltest/testing/live.ql hashes to 48f93c1d1f7cd3a4756d18599b1bd56eca8dac96.
+[2023-04-13 01:10:13] [DETAILS] execute queries> Compilation cache hit for /home/t/demo/codeqltest/testing/live.ql.
+[2023-04-13 01:10:13] [WARN] execute queries> WARNING: Unused method getSizeArgument (/home/t/demo/codeqltest/testing/live.ql:7,7-22)
+[2023-04-13 01:10:13] [SPAMMY] execute queries> Resolving database upgrades/downgrades in search path for /home/t/demo/codeqltest/testing/live.ql
+[2023-04-13 01:10:13] Calling plumbing command: codeql resolve upgrades --additional-packs=/home/t/demo/codeqltest/testing:/home/t/.codeql/packages/codeql/cpp-all/0.6.1:/home/t/.codeql/packages/codeql/ssa/0.0.14:/home/t/.codeql/packages/codeql/tutorial/0.0.7 --target-sha=a5bb28ed29f73855d64cc5f939cef977fa8fd19a --allow-downgrades --dbscheme=/home/t/demo/codeqltest/testing/demo/db-cpp/semmlecode.cpp.dbscheme --format=json
+[2023-04-13 01:10:13] [DETAILS] resolve upgrades> Searching for upgrades that apply to 625f706f2a44ae8dc3fc168bfe2637e65c30b012.
+[2023-04-13 01:10:13] [DETAILS] resolve upgrades> Scanning for [codeql-pack.yml, qlpack.yml] from /home/t/demo/codeqltest/testing/
+[2023-04-13 01:10:13] [DETAILS] resolve upgrades> Scanning for [codeql-pack.yml, qlpack.yml] from /home/t/.codeql/packages/codeql/cpp-all/0.6.1/
+[2023-04-13 01:10:13] [DETAILS] resolve upgrades> Scanning for [codeql-pack.yml, qlpack.yml] from /home/t/.codeql/packages/codeql/ssa/0.0.14/
+[2023-04-13 01:10:13] [DETAILS] resolve upgrades> Scanning for [codeql-pack.yml, qlpack.yml] from /home/t/.codeql/packages/codeql/tutorial/0.0.7/
+[2023-04-13 01:10:13] [DETAILS] resolve upgrades> Scanning for [codeql-pack.yml, qlpack.yml] from /opt/codeql/.codeqlmanifest.json
+[2023-04-13 01:10:13] [DETAILS] resolve upgrades> Scanning for [codeql-pack.yml, qlpack.yml] from /opt/
+[2023-04-13 01:10:13] [DETAILS] resolve upgrades> Not scanning from /opt/codeql which is already done.
+[2023-04-13 01:10:13] [DETAILS] resolve upgrades> Will look for upgrades in /home/t/.codeql/packages/codeql/cpp-all/0.6.1/upgrades
+[2023-04-13 01:10:13] [DETAILS] resolve upgrades> Will look for upgrades in /opt/codeql/legacy-upgrades/upgrades
+[2023-04-13 01:10:13] [DETAILS] resolve upgrades> Found upgrade run ending at a5bb28ed29f73855d64cc5f939cef977fa8fd19a.
+[2023-04-13 01:10:13] Plumbing command codeql resolve upgrades completed:
+                      {
+                        "scripts" : [
+                          "/home/t/.codeql/packages/codeql/cpp-all/0.6.1/upgrades/625f706f2a44ae8dc3fc168bfe2637e65c30b012",
+                          "/home/t/.codeql/packages/codeql/cpp-all/0.6.1/upgrades/ba86bebea4c7a8235c2fa0e220391fbd4446a087"
+                        ],
+                        "finalDbscheme" : "/home/t/.codeql/packages/codeql/cpp-all/0.6.1/upgrades/ba86bebea4c7a8235c2fa0e220391fbd4446a087/semmlecode.cpp.dbscheme",
+                        "matchesTarget" : true
+                      }
+[2023-04-13 01:10:13] [SPAMMY] execute queries> Will apply upgrade/downgrade script: Uncomment case splits in dbscheme.
+[2023-04-13 01:10:13] [SPAMMY] execute queries> Will apply upgrade/downgrade script: Introduce (_Complex) _Float16 type.
+[2023-04-13 01:10:13] [PROGRESS] execute queries> [1/1] Found in cache: /home/t/demo/codeqltest/testing/live.ql.
+[2023-04-13 01:10:13] [PROGRESS] execute queries> Starting evaluation of docfate111/testing/live.ql.
+[2023-04-13 01:10:13] Starting evaluation of /home/t/demo/codeqltest/testing/live.ql
+[2023-04-13 01:10:13] (0s) Start query execution
+[2023-04-13 01:10:13] (0s) Beginning execution of live.ql
+[2023-04-13 01:10:13] (0s)  >>> Created relation funbind/2@7b6219rd with 22 rows.
+[2023-04-13 01:10:13] (0s)  >>> Created relation iscall/2@f9e3d7p3 with 22 rows.
+[2023-04-13 01:10:13] (0s)  >>> Created relation functions/3@d341e4il with 426 rows.
+[2023-04-13 01:10:13] (0s) Starting to evaluate predicate functions_10#join_rhs/2@e0e993ei
+[2023-04-13 01:10:13] (0s)  >>> Created relation functions_10#join_rhs/2@e0e993ei with 426 rows.
+[2023-04-13 01:10:13] (0s) Starting to evaluate predicate m#Call#39248e3c::FunctionCall::getTarget#0#dispred#fb/1@46d2854n
+[2023-04-13 01:10:13] (0s)  >>> Created relation m#Call#39248e3c::FunctionCall::getTarget#0#dispred#fb/1@46d2854n with 2 rows.
+[2023-04-13 01:10:13] (0s)  >>> Created relation exprs/3@9397d9en with 777 rows.
+[2023-04-13 01:10:13] (0s) Starting to evaluate predicate exprs_10#join_rhs/2@5481143i
+[2023-04-13 01:10:13] (0s)  >>> Created relation exprs_10#join_rhs/2@5481143i with 777 rows.
+[2023-04-13 01:10:13] (0s) Starting to evaluate predicate Call#39248e3c::Call#f/1@b0cfd85n
+[2023-04-13 01:10:13] (0s)  >>> Created relation Call#39248e3c::Call#f/1@b0cfd85n with 22 rows.
+[2023-04-13 01:10:13] (0s) Starting to evaluate predicate Call#39248e3c::FunctionCall::getTarget#fb/2@ae9950ag
+[2023-04-13 01:10:13] (0s)  >>> Created relation Call#39248e3c::FunctionCall::getTarget#fb/2@ae9950ag with 2 rows.
+[2023-04-13 01:10:13] (0s) Starting to evaluate predicate Call#39248e3c::FunctionCall::getTarget#fb_10#join_rhs/2@81fe0fd8
+[2023-04-13 01:10:13] (0s)  >>> Created relation Call#39248e3c::FunctionCall::getTarget#fb_10#join_rhs/2@81fe0fd8 with 2 rows.
+[2023-04-13 01:10:13] (0s)  >>> Created relation member/3@c4427drq with 203 rows.
+[2023-04-13 01:10:13] (0s) Starting to evaluate predicate m#Call#39248e3c::ConstructorCall#b/1@0bdf738a
+[2023-04-13 01:10:13] (0s)  >>> Created relation m#Call#39248e3c::ConstructorCall#b/1@0bdf738a with 2 rows.
+[2023-04-13 01:10:13] (0s) Starting to evaluate predicate m#Call#39248e3c::FunctionCall::getTarget#bf/1@21868c27
+[2023-04-13 01:10:13] (0s)  >>> Created relation m#Call#39248e3c::FunctionCall::getTarget#bf/1@21868c27 with 2 rows.
+[2023-04-13 01:10:13] (0s) Starting to evaluate predicate Call#39248e3c::FunctionCall::getTarget#bf/2@4ddcc774
+[2023-04-13 01:10:13] (0s)  >>> Created relation Call#39248e3c::FunctionCall::getTarget#bf/2@4ddcc774 with 2 rows.
+[2023-04-13 01:10:13] (0s) Starting to evaluate predicate m#MemberFunction#5d715d12::Constructor#b/1@8ccc898h
+[2023-04-13 01:10:13] (0s)  >>> Created relation m#MemberFunction#5d715d12::Constructor#b/1@8ccc898h with 2 rows.
+[2023-04-13 01:10:13] (0s) Starting to evaluate predicate m#MemberFunction#5d715d12::MemberFunction#b/1@cb4d889g
+[2023-04-13 01:10:13] (0s)  >>> Created relation m#MemberFunction#5d715d12::MemberFunction#b/1@cb4d889g with 2 rows.
+[2023-04-13 01:10:13] (0s)  >>> Created relation is_function_template/1@72000e4n with 0 rows.
+[2023-04-13 01:10:13] (0s) Inferred that _is_function_template_project#function_template_argument#shared/1@07bb075u is empty, due to is_function_template/1@72000e4n.
+[2023-04-13 01:10:13] (0s) Inferred that Function#65d29029::TemplateFunction::getAnInstantiation#0#dispred#fb/2@25bb9fer is empty, due to is_function_template/1@72000e4n.
+[2023-04-13 01:10:13] (0s) Inferred that Function#65d29029::TemplateFunction::getAnInstantiation#0#dispred#fb/2@3edd4cnh is empty, due to is_function_template/1@72000e4n.
+[2023-04-13 01:10:13] (0s) Inferred that Function#65d29029::TemplateFunction::getAnInstantiation#0#dispred#fb/2@13b8a9n4 is empty, due to is_function_template/1@72000e4n.
+[2023-04-13 01:10:13] (0s) Inferred that __is_function_template_project#function_template_argument#shared_fun_decls_10#join_rhs_fun_specializ__#antijoin_rhs/1@0854e692 is empty, due to _is_function_template_project#function_template_argument#shared/1@07bb075u.
+[2023-04-13 01:10:13] (0s) Inferred that QualifiedName#6f5e0462::TemplateFunction::getAnInstantiation#0#dispred#ff/2@8f643550 is empty, due to _is_function_template_project#function_template_argument#shared/1@07bb075u.
+[2023-04-13 01:10:13] (0s)  >>> Created relation _is_function_template_project#function_template_argument#shared/1@07bb075u with 0 rows.
+[2023-04-13 01:10:13] (0s)  >>> Created relation Function#65d29029::TemplateFunction::getAnInstantiation#0#dispred#fb/2@25bb9fer with 0 rows.
+[2023-04-13 01:10:13] (0s)  >>> Created relation __is_function_template_project#function_template_argument#shared_fun_decls_10#join_rhs_fun_specializ__#antijoin_rhs/1@0854e692 with 0 rows.
+[2023-04-13 01:10:13] (0s)  >>> Created relation QualifiedName#6f5e0462::TemplateFunction::getAnInstantiation#0#dispred#ff/2@8f643550 with 0 rows.
+[2023-04-13 01:10:13] (0s)  >>> Created relation Function#65d29029::TemplateFunction::getAnInstantiation#0#dispred#fb/2@13b8a9n4 with 0 rows.
+[2023-04-13 01:10:13] (0s)  >>> Created relation Function#65d29029::TemplateFunction::getAnInstantiation#0#dispred#fb/2@3edd4cnh with 0 rows.
+[2023-04-13 01:10:13] (0s) Starting to evaluate predicate m#Class#bacd9b46::Class::getCanonicalMember#1#dispred#ffb/1@955229n5
+[2023-04-13 01:10:13] (0s)  >>> Created relation m#Class#bacd9b46::Class::getCanonicalMember#1#dispred#ffb/1@955229n5 with 2 rows.
+[2023-04-13 01:10:13] (0s) Starting to evaluate predicate Class#bacd9b46::Class::getCanonicalMember#1#dispred#ffb/3@28cb8c6r
+[2023-04-13 01:10:13] (0s)  >>> Created relation Class#bacd9b46::Class::getCanonicalMember#1#dispred#ffb/3@28cb8c6r with 0 rows.
+[2023-04-13 01:10:13] (0s) Inferred that Class#bacd9b46::Class::getCanonicalMember#1#dispred#ffb_201#join_rhs/3@ed5dd9fh is empty, due to Class#bacd9b46::Class::getCanonicalMember#1#dispred#ffb/3@28cb8c6r.
+[2023-04-13 01:10:13] (0s) Inferred that Class#bacd9b46::Class::getAMember#1#dispred#ffb/3@34da7505 is empty, due to Class#bacd9b46::Class::getCanonicalMember#1#dispred#ffb_201#join_rhs/3@ed5dd9fh.
+[2023-04-13 01:10:13] (0s) Inferred that project#Class#bacd9b46::Class::getAMember#1#dispred#ffb/1@d11714n6 is empty, due to Class#bacd9b46::Class::getAMember#1#dispred#ffb/3@34da7505.
+[2023-04-13 01:10:13] (0s) Inferred that MemberFunction#5d715d12::MemberFunction#b/1@56bea9is is empty, due to project#Class#bacd9b46::Class::getAMember#1#dispred#ffb/1@d11714n6.
+[2023-04-13 01:10:13] (0s) Inferred that MemberFunction#5d715d12::Constructor#b/1@f32be0u4 is empty, due to MemberFunction#5d715d12::MemberFunction#b/1@56bea9is.
+[2023-04-13 01:10:13] (0s) Inferred that MemberFunction#5d715d12::Destructor#b/1@d3fbeff6 is empty, due to MemberFunction#5d715d12::MemberFunction#b/1@56bea9is.
+[2023-04-13 01:10:13] (0s) Inferred that Call#39248e3c::ConstructorCall#b/1@50c04db9 is empty, due to MemberFunction#5d715d12::Constructor#b/1@f32be0u4.
+[2023-04-13 01:10:13] (0s) Inferred that Call#39248e3c::DestructorCall#b/1@a624abh8 is empty, due to MemberFunction#5d715d12::Destructor#b/1@d3fbeff6.
+[2023-04-13 01:10:13] (0s)  >>> Created relation Call#39248e3c::ConstructorCall#b/1@50c04db9 with 0 rows.
+[2023-04-13 01:10:13] (0s)  >>> Created relation Call#39248e3c::DestructorCall#b/1@a624abh8 with 0 rows.
+[2023-04-13 01:10:13] (0s)  >>> Created relation Class#bacd9b46::Class::getCanonicalMember#1#dispred#ffb_201#join_rhs/3@ed5dd9fh with 0 rows.
+[2023-04-13 01:10:13] (0s)  >>> Created relation project#Class#bacd9b46::Class::getAMember#1#dispred#ffb/1@d11714n6 with 0 rows.
+[2023-04-13 01:10:13] (0s)  >>> Created relation MemberFunction#5d715d12::Destructor#b/1@d3fbeff6 with 0 rows.
+[2023-04-13 01:10:13] (0s)  >>> Created relation MemberFunction#5d715d12::MemberFunction#b/1@56bea9is with 0 rows.
+[2023-04-13 01:10:13] (0s)  >>> Created relation MemberFunction#5d715d12::Constructor#b/1@f32be0u4 with 0 rows.
+[2023-04-13 01:10:13] (0s)  >>> Created relation Class#bacd9b46::Class::getAMember#1#dispred#ffb/3@34da7505 with 0 rows.
+[2023-04-13 01:10:13] (0s) Starting to evaluate predicate Call#39248e3c::FunctionCall::getTarget#0#dispred#fb/2@a00585o4
+[2023-04-13 01:10:13] (0s)  >>> Created relation Call#39248e3c::FunctionCall::getTarget#0#dispred#fb/2@a00585o4 with 2 rows.
+[2023-04-13 01:10:13] (0s)  >>> Created relation Call#39248e3c::FunctionCall::getTarget#0#dispred#fb_10#join_rhs/2@61f9420m with 2 rows.
+[2023-04-13 01:10:13] Cachaca resolved layer: #171 evaluator Call#39248e3c::FunctionCall::getTarget#0#dispred#fb_10#join_rhs/2@61f9420m
+[2023-04-13 01:10:13] (0s) Starting to evaluate predicate #select#f/1@73572c9n
+[2023-04-13 01:10:13] (0s)  >>> Created relation #select#f/1@73572c9n with 2 rows.
+[2023-04-13 01:10:13] (0s) Starting to evaluate predicate project#Element#496c7fc2::ElementBase::toString#0#dispred/1@43405cst
+[2023-04-13 01:10:13] (0s)  >>> Created relation project#Element#496c7fc2::ElementBase::toString#0#dispred/1@43405cst with 12849 rows.
+[2023-04-13 01:10:13] (0s)  >>> Created relation locations_expr/6@3f68a5vv with 703 rows.
+[2023-04-13 01:10:13] (0s) Starting to evaluate predicate locations_expr_23450#join_rhs/5@005e2dga
+[2023-04-13 01:10:13] (0s)  >>> Created relation locations_expr_23450#join_rhs/5@005e2dga with 703 rows.
+[2023-04-13 01:10:13] (0s)  >>> Created relation files/2@bfcf0c84 with 70 rows.
+[2023-04-13 01:10:13] (0s)  >>> Created relation exprparents/3@a532c646 with 121 rows.
+[2023-04-13 01:10:13] (0s)  >>> Created relation usertypes/3@fc89fbdn with 204 rows.
+[2023-04-13 01:10:13] (0s) Starting to evaluate predicate usertypes_0#antijoin_rhs/1@55faa2pt
+[2023-04-13 01:10:13] (0s)  >>> Created relation usertypes_0#antijoin_rhs/1@55faa2pt with 204 rows.
+[2023-04-13 01:10:13] (0s)  >>> Created relation membervariables/3@d7f3b4dr with 131 rows.
+[2023-04-13 01:10:13] (0s)  >>> Created relation localvariables/3@621c54fo with 5 rows.
+[2023-04-13 01:10:13] (0s)  >>> Created relation params/4@a622ee4g with 799 rows.
+[2023-04-13 01:10:13] (0s)  >>> Created relation globalvariables/3@31e921a4 with 3 rows.
+[2023-04-13 01:10:13] (0s) Starting to evaluate predicate @variable#b/1@9b58e5oc
+[2023-04-13 01:10:13] (0s)  >>> Created relation @variable#b/1@9b58e5oc with 938 rows.
+[2023-04-13 01:10:13] (0s) Starting to evaluate predicate Expr#ef463c5d::Expr::getParent#0#dispred#bf/2@9677bcho
+[2023-04-13 01:10:13] (0s)  >>> Created relation Expr#ef463c5d::Expr::getParent#0#dispred#bf/2@9677bcho with 121 rows.
+[2023-04-13 01:10:13] (0s) Starting to evaluate predicate m#Expr#ef463c5d::Expr::getExprLocationOverride#bf/1@i1#e22820en (iteration 1)
+[2023-04-13 01:10:13] (0s) 			 - m#Expr#ef463c5d::Expr::getExprLocationOverride#bf_delta has 2 rows (order for disjuncts: delta=<standard>).
+[2023-04-13 01:10:13] (0s) Starting to evaluate predicate m#Expr#ef463c5d::Expr::getExprLocationOverride#bf/1@i2#e22820en (iteration 2)
+[2023-04-13 01:10:13] (0s) 			 - m#Expr#ef463c5d::Expr::getExprLocationOverride#bf_delta has 2 rows (order for disjuncts: delta=<standard>).
+[2023-04-13 01:10:13] (0s) Starting to evaluate predicate m#Expr#ef463c5d::Expr::getExprLocationOverride#bf/1@i3#e22820en (iteration 3)
+[2023-04-13 01:10:13] (0s) 			 - m#Expr#ef463c5d::Expr::getExprLocationOverride#bf_delta has 1 rows (order for disjuncts: delta=<standard>).
+[2023-04-13 01:10:13] (0s) Starting to evaluate predicate m#Expr#ef463c5d::Expr::getExprLocationOverride#bf/1@i4#e22820en (iteration 4)
+[2023-04-13 01:10:13] (0s) Empty delta for m#Expr#ef463c5d::Expr::getExprLocationOverride#bf_delta (order for disjuncts: delta=<standard>).
+[2023-04-13 01:10:13] (0s) Accumulating deltas
+[2023-04-13 01:10:13] (0s)  >>> Created relation m#Expr#ef463c5d::Expr::getExprLocationOverride#bf/1@e22820en with 5 rows.
+[2023-04-13 01:10:13] (0s) Starting to evaluate predicate locations_expr_40#join_rhs/2@c4deb7ki
+[2023-04-13 01:10:13] (0s)  >>> Created relation locations_expr_40#join_rhs/2@c4deb7ki with 703 rows.
+[2023-04-13 01:10:13] (0s) Starting to evaluate predicate m#Location#bd5c7591::UnknownLocation#b/1@65ea139o
+[2023-04-13 01:10:13] (0s)  >>> Created relation m#Location#bd5c7591::UnknownLocation#b/1@65ea139o with 2 rows.
+[2023-04-13 01:10:13] (0s) Starting to evaluate predicate Location#bd5c7591::Location::getContainer#ff/2@28c0f42s
+[2023-04-13 01:10:13] (0s)  >>> Created relation Location#bd5c7591::Location::getContainer#ff/2@28c0f42s with 703 rows.
+[2023-04-13 01:10:13] (0s) Starting to evaluate predicate Location#bd5c7591::UnknownLocation#b/1@072cbb19
+[2023-04-13 01:10:13] (0s)  >>> Created relation Location#bd5c7591::UnknownLocation#b/1@072cbb19 with 1 rows.
+[2023-04-13 01:10:13] (0s) Starting to evaluate predicate Location#bd5c7591::UnknownExprLocation#f/1@35447676
+[2023-04-13 01:10:13] (0s)  >>> Created relation Location#bd5c7591::UnknownExprLocation#f/1@35447676 with 1 rows.
+[2023-04-13 01:10:13] (0s) Starting to evaluate predicate _Expr#ef463c5d::Expr::getParent#0#dispred#bf_Location#bd5c7591::UnknownExprLocation#f_exprs_m#Expr#e__#join_rhs/2@f2384fd2
+[2023-04-13 01:10:13] (0s)  >>> Created relation _Expr#ef463c5d::Expr::getParent#0#dispred#bf_Location#bd5c7591::UnknownExprLocation#f_exprs_m#Expr#e__#join_rhs/2@f2384fd2 with 0 rows.
+[2023-04-13 01:10:13] (0s) Inferred that Expr#ef463c5d::Expr::getExprLocationOverride#bf/2@e2bb035e is empty, due to _Expr#ef463c5d::Expr::getParent#0#dispred#bf_Location#bd5c7591::UnknownExprLocation#f_exprs_m#Expr#e__#join_rhs/2@f2384fd2.
+[2023-04-13 01:10:13] (0s) Inferred that project#Expr#ef463c5d::Expr::getExprLocationOverride#bf/1@9d6731vm is empty, due to Expr#ef463c5d::Expr::getExprLocationOverride#bf/2@e2bb035e.
+[2023-04-13 01:10:13] (0s)  >>> Created relation Expr#ef463c5d::Expr::getExprLocationOverride#bf/2@e2bb035e with 0 rows.
+[2023-04-13 01:10:13] (0s)  >>> Created relation project#Expr#ef463c5d::Expr::getExprLocationOverride#bf/1@9d6731vm with 0 rows.
+[2023-04-13 01:10:13] (0s) Starting to evaluate predicate Expr#ef463c5d::Expr::getLocation#0#dispred#bf/2@32052chj
+[2023-04-13 01:10:13] (0s)  >>> Created relation Expr#ef463c5d::Expr::getLocation#0#dispred#bf/2@32052chj with 2 rows.
+[2023-04-13 01:10:13] (0s) Starting to evaluate predicate m#Location#bd5c7591::Location::hasLocationInfo#5#dispred#bfffff/1@211a74kg
+[2023-04-13 01:10:13] (0s)  >>> Created relation m#Location#bd5c7591::Location::hasLocationInfo#5#dispred#bfffff/1@211a74kg with 2 rows.
+[2023-04-13 01:10:13] (0s) Starting to evaluate predicate m#File#1c14e1de::Container::getAbsolutePath#0#dispred#bf/1@4d71eabo
+[2023-04-13 01:10:13] (0s)  >>> Created relation m#File#1c14e1de::Container::getAbsolutePath#0#dispred#bf/1@4d71eabo with 1 rows.
+[2023-04-13 01:10:13] (0s)  >>> Created relation folders/2@3a330ev0 with 26 rows.
+[2023-04-13 01:10:13] (0s) Starting to evaluate predicate File#1c14e1de::Container::getAbsolutePath#0#dispred#bf/2@01eaaafo
+[2023-04-13 01:10:13] (0s)  >>> Created relation File#1c14e1de::Container::getAbsolutePath#0#dispred#bf/2@01eaaafo with 1 rows.
+[2023-04-13 01:10:13] (0s) Starting to evaluate predicate Location#bd5c7591::Location::hasLocationInfo#5#dispred#bfffff/6@24c87ae8
+[2023-04-13 01:10:13] (0s)  >>> Created relation Location#bd5c7591::Location::hasLocationInfo#5#dispred#bfffff/6@24c87ae8 with 2 rows.
+[2023-04-13 01:10:13] (0s) Starting to evaluate predicate _#select#f_Expr#ef463c5d::Expr::getLocation#0#dispred#bf#shared/2@135295vt
+[2023-04-13 01:10:13] (0s)  >>> Created relation _#select#f_Expr#ef463c5d::Expr::getLocation#0#dispred#bf#shared/2@135295vt with 2 rows.
+[2023-04-13 01:10:13] (0s) Starting to evaluate predicate _Location#bd5c7591::Location::hasLocationInfo#5#dispred#bfffff__#select#f_Expr#ef463c5d::Expr::getLo__#antijoin_rhs/1@e249eepa
+[2023-04-13 01:10:13] (0s)  >>> Created relation _Location#bd5c7591::Location::hasLocationInfo#5#dispred#bfffff__#select#f_Expr#ef463c5d::Expr::getLo__#antijoin_rhs/1@e249eepa with 2 rows.
+[2023-04-13 01:10:13] (0s) Starting to evaluate predicate #select#query#fffffff/7@7cd327n3
+[2023-04-13 01:10:13] (0s)  >>> Created relation #select#query#fffffff/7@7cd327n3 with 2 rows.
+[2023-04-13 01:10:13] (0s) Query done
+[2023-04-13 01:10:13] (0s) Sequence stamp origin is -6332442173478078342
+[2023-04-13 01:10:13] (0s) Pausing evaluation to sync to disk at sequence stamp o+0
+[2023-04-13 01:10:13] (0s) Unpausing evaluation
+[2023-04-13 01:10:13] Evaluation of /home/t/demo/codeqltest/testing/live.ql produced BQRS results.
+[2023-04-13 01:10:13] [PROGRESS] execute queries> Evaluation completed (191ms).
+[2023-04-13 01:10:13] Constructing in-process plumbing: codeql bqrs decode dummy.bqrs
+[2023-04-13 01:10:13] [PROGRESS] execute queries> Shutting down query evaluator.
+[2023-04-13 01:10:13] Pausing evaluation to close the cache at sequence stamp o+1
+[2023-04-13 01:10:13] The disk cache is freshly trimmed; leave it be.
+[2023-04-13 01:10:13] Unpausing evaluation
+[2023-04-13 01:10:13] Terminating normally.

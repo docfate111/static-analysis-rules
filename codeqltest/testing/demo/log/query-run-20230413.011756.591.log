@@ -1,0 +1,12 @@
+[2023-04-13 01:17:56] This is codeql query run live.ql -d=demo
+[2023-04-13 01:17:56] Log file was started late.
+[2023-04-13 01:17:56] Calling plumbing command: codeql resolve ram --format=json
+[2023-04-13 01:17:56] Plumbing command codeql resolve ram completed:
+                      [
+                        "-J-Xmx1471M",
+                        "--off-heap-ram=1471"
+                      ]
+[2023-04-13 01:17:56] Spawning plumbing command: execute queries -J-Xmx1471M --off-heap-ram=1471 --verbosity=progress --logdir=/home/t/demo/codeqltest/testing/demo/log --evaluator-log-level=5 --insecurely-execute-ml-model-checksums= --warnings=show --qlconfig-file=/home/t/demo/codeqltest/testing/qlconfig.yml -- /home/t/demo/codeqltest/testing/demo/db-cpp /home/t/demo/codeqltest/testing/live.ql
+[2023-04-13 01:18:02] [ERROR] Spawned process exited abnormally (code 2; tried to run: [/opt/codeql/tools/linux64/java/bin/java, -Xmx1471M, -Djava.library.path=/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib, -cp, /opt/codeql/tools/codeql.jar, com.semmle.cli2.CodeQL, env_argv, execute, queries, -J-Xmx1471M, _, _, _, _, _, _, _, --, /home/t/demo/codeqltest/testing/demo/db-cpp, /home/t/demo/codeqltest/testing/live.ql])
+[2023-04-13 01:18:02] Plumbing command codeql execute queries terminated with status 2.
+[2023-04-13 01:18:02] Exiting with code 2

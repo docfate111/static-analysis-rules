@@ -1,0 +1,11 @@
+[2023-04-13 01:09:29] This is codeql query run live.ql -d=demo
+[2023-04-13 01:09:29] Log file was started late.
+[2023-04-13 01:09:29] Calling plumbing command: codeql resolve ram --format=json
+[2023-04-13 01:09:29] Plumbing command codeql resolve ram completed:
+                      [
+                        "-J-Xmx1471M",
+                        "--off-heap-ram=1471"
+                      ]
+[2023-04-13 01:09:29] Spawning plumbing command: execute queries -J-Xmx1471M --off-heap-ram=1471 --verbosity=progress --logdir=/home/t/demo/codeqltest/testing/demo/log --evaluator-log-level=5 --insecurely-execute-ml-model-checksums= --warnings=show --qlconfig-file=/home/t/demo/codeqltest/testing/qlconfig.yml -- /home/t/demo/codeqltest/testing/demo/db-cpp /home/t/demo/codeqltest/testing/live.ql
+[2023-04-13 01:09:42] Plumbing command codeql execute queries terminated with status 0.
+[2023-04-13 01:09:42] Exiting with code 0

@@ -1,0 +1,9 @@
+---
+sourceLocationPrefix: "/home/t/demo/codeqltest/testing/src"
+baselineLinesOfCode: 24
+unicodeNewlines: false
+columnKind: "utf8"
+primaryLanguage: "cpp"
+creationMetadata:
+  cliVersion: "2.11.6"
+  creationTime: "2023-04-13T07:58:52.972988425Z"

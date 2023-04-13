@@ -1,0 +1,67 @@
+[2023-04-13 00:58:57] This is codeql execute queries -J-Xmx1471M --off-heap-ram=1471 --verbosity=progress --logdir=/home/t/demo/codeqltest/testing/demo/log --evaluator-log-level=5 --insecurely-execute-ml-model-checksums= --warnings=show --qlconfig-file=/home/t/demo/codeqltest/testing/qlconfig.yml -- /home/t/demo/codeqltest/testing/demo/db-cpp /home/t/demo/codeqltest/testing/live.ql
+[2023-04-13 00:58:57] Calling plumbing command: codeql resolve queries --qlconfig-file=/home/t/demo/codeqltest/testing/qlconfig.yml --format=json -- /home/t/demo/codeqltest/testing/live.ql
+[2023-04-13 00:58:58] [PROGRESS] resolve queries> Recording pack reference docfate111/testing at /home/t/demo/codeqltest/testing.
+[2023-04-13 00:58:58] Plumbing command codeql resolve queries completed:
+                      [
+                        "/home/t/demo/codeqltest/testing/live.ql"
+                      ]
+[2023-04-13 00:58:58] Refusing fancy output: The terminal is not an xterm: tmux-256color
+[2023-04-13 00:58:58] Creating executor with 1 threads.
+[2023-04-13 00:58:58] Calling plumbing command: codeql resolve extensions --qlconfig-file=/home/t/demo/codeqltest/testing/qlconfig.yml --insecurely-execute-ml-model-checksums= /home/t/demo/codeqltest/testing/live.ql
+[2023-04-13 00:58:58] Calling plumbing command: codeql resolve queries --qlconfig-file=/home/t/demo/codeqltest/testing/qlconfig.yml --format startingpacks -- /home/t/demo/codeqltest/testing/live.ql
+[2023-04-13 00:58:58] [PROGRESS] resolve queries> Recording pack reference docfate111/testing at /home/t/demo/codeqltest/testing.
+[2023-04-13 00:58:58] Plumbing command codeql resolve queries completed:
+                      [
+                        "/home/t/demo/codeqltest/testing"
+                      ]
+[2023-04-13 00:58:58] Plumbing command codeql resolve extensions completed:
+                      {
+                        "models" : [ ],
+                        "data" : { }
+                      }
+[2023-04-13 00:58:58] [DETAILS] execute queries> Did not find any ML models.
+[2023-04-13 00:58:58] [SPAMMIER] execute queries> Data extensions for query 'live.ql' in 'docfate111/testing':
+                      {}
+[2023-04-13 00:58:58] Calling plumbing command: codeql resolve library-path --qlconfig-file=/home/t/demo/codeqltest/testing/qlconfig.yml --query=/home/t/demo/codeqltest/testing/live.ql --format=json
+[2023-04-13 00:58:58] [DETAILS] resolve library-path> Resolving query at normalized path /home/t/demo/codeqltest/testing/live.ql.
+[2023-04-13 00:58:58] [DETAILS] resolve library-path> Found enclosing pack 'docfate111/testing' at /home/t/demo/codeqltest/testing.
+[2023-04-13 00:58:58] [DETAILS] resolve library-path> Adding compilation cache at /home/t/demo/codeqltest/testing/.cache.
+[2023-04-13 00:58:58] [DETAILS] resolve library-path> Resolving library dependencies from /home/t/demo/codeqltest/testing/qlpack.yml.
+[2023-04-13 00:58:58] [ERROR] resolve library-path> ERROR: Referenced pack 'codeql/cpp-all' not found. (/home/t/demo/codeqltest/testing/qlpack.yml:1,1-1)
+[2023-04-13 00:58:58] [ERROR] Exception collected asynchronously; saving it while cancelling everything
+                              com.semmle.util.exception.UserError: Could not resolve library path for /home/t/demo/codeqltest/testing
+                              	at com.semmle.cli2.resolve.ResolveLibraryPathCommand.executeJSON(ResolveLibraryPathCommand.java:220)
+                              	at com.semmle.cli2.resolve.ResolveLibraryPathCommand.executeJSON(ResolveLibraryPathCommand.java:47)
+                              	at com.semmle.cli2.picocli.SimpleJsonSubcommand.executeInsistingOnJSONWithExistingMessages(SimpleJsonSubcommand.java:129)
+                              	at com.semmle.cli2.picocli.SubcommandCommon.withCompilationMessages(SubcommandCommon.java:405)
+                              	at com.semmle.cli2.picocli.SimpleJsonSubcommand.executeInsistingOnJSON(SimpleJsonSubcommand.java:119)
+                              	at com.semmle.cli2.picocli.PlumbingRunner.call(PlumbingRunner.java:54)
+                              	at com.semmle.cli2.picocli.SubcommandCommon.callPlumbingInProcess(SubcommandCommon.java:150)
+                              	at com.semmle.cli2.execute.ExecuteQueriesCommand.resolveLibraryPath(ExecuteQueriesCommand.java:555)
+                              	at com.semmle.cli2.execute.ExecuteQueriesCommand.lambda$executeSubcommand$2(ExecuteQueriesCommand.java:284)
+                              	at com.semmle.cli2.ql.Paralleliser$1.lambda$next$0(Paralleliser.java:68)
+                              	at com.semmle.util.concurrent.FutureUtils.supplyCompose(FutureUtils.java:217)
+                              	at com.semmle.cli2.ql.Paralleliser.lambda$startMoreJobs$1(Paralleliser.java:112)
+                              	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+                              	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+                              	at java.base/java.lang.Thread.run(Unknown Source)
+[2023-04-13 00:58:58] Sequence stamp origin is -6332445070822476942
+[2023-04-13 00:58:58] Pausing evaluation to close the cache at sequence stamp o+0
+[2023-04-13 00:58:58] The disk cache is freshly trimmed; leave it be.
+[2023-04-13 00:58:58] Unpausing evaluation
+[2023-04-13 00:58:58] Exception caught in async task: Could not resolve library path for /home/t/demo/codeqltest/testing
+                      com.semmle.cli2.resolve.ResolveLibraryPathCommand.executeJSON(ResolveLibraryPathCommand.java:220)
+                      com.semmle.cli2.resolve.ResolveLibraryPathCommand.executeJSON(ResolveLibraryPathCommand.java:47)
+                      com.semmle.cli2.picocli.SimpleJsonSubcommand.executeInsistingOnJSONWithExistingMessages(SimpleJsonSubcommand.java:129)
+                      com.semmle.cli2.picocli.SubcommandCommon.withCompilationMessages(SubcommandCommon.java:405)
+                      com.semmle.cli2.picocli.SimpleJsonSubcommand.executeInsistingOnJSON(SimpleJsonSubcommand.java:119)
+                      com.semmle.cli2.picocli.PlumbingRunner.call(PlumbingRunner.java:54)
+                      com.semmle.cli2.picocli.SubcommandCommon.callPlumbingInProcess(SubcommandCommon.java:150)
+                      com.semmle.cli2.execute.ExecuteQueriesCommand.resolveLibraryPath(ExecuteQueriesCommand.java:555)
+                      com.semmle.cli2.execute.ExecuteQueriesCommand.lambda$executeSubcommand$2(ExecuteQueriesCommand.java:284)
+                      com.semmle.cli2.ql.Paralleliser$1.lambda$next$0(Paralleliser.java:68)
+                      com.semmle.util.concurrent.FutureUtils.supplyCompose(FutureUtils.java:217)
+                      com.semmle.cli2.ql.Paralleliser.lambda$startMoreJobs$1(Paralleliser.java:112)
+                      java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+                      java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+                      java.base/java.lang.Thread.run(Unknown Source)
