@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html class="no-touch" lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!-- META DATA -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preload" href="GitHub%20Security%20Lab%20CTF%202%20U-Boot%20Challenge%20GitHub%20Security%20Lab_files/index.css" as="style">
+    <link rel="preload" href="GitHub%20Security%20Lab%20CTF%202%20U-Boot%20Challenge%20GitHub%20Security%20Lab_files/main.js" as="script">
+    <!--[if IE]><meta http-equiv="cleartype" content="on" /><![endif]-->
+    <link rel="canonical" href="https://securitylab.github.com/ctf/uboot/">
+    <link rel="alternate" type="application/rss+xml" title="GitHub Security Lab" href="https://securitylab.github.com/feed.xml">
+    <link rel="stylesheet" media="screen" href="GitHub%20Security%20Lab%20CTF%202%20U-Boot%20Challenge%20GitHub%20Security%20Lab_files/index.css">
+    <script async="" src="GitHub%20Security%20Lab%20CTF%202%20U-Boot%20Challenge%20GitHub%20Security%20Lab_files/geoip2.js"></script>
+    <script src="GitHub%20Security%20Lab%20CTF%202%20U-Boot%20Challenge%20GitHub%20Security%20Lab_files/jquery.js"></script>
+    <link id="favicon" rel="shortcut icon" type="image/ico" href="https://securitylab.github.com/assets/img/favicons/favicon-light.png">
+    <link rel="apple-touch-icon" href="https://securitylab.github.com/assets/img/favicons/apple-touch-icon.png">
+    <link rel="icon" href="https://securitylab.github.com/assets/img/favicons/android-favicon.png">
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>GitHub Security Lab CTF 2: U-Boot Challenge | GitHub Security Lab</title>
+<meta name="generator" content="Jekyll v4.1.1">
+<meta property="og:title" content="GitHub Security Lab CTF 2: U-Boot Challenge">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="Securing the world’s software, together">
+<meta property="og:description" content="Securing the world’s software, together">
+<link rel="canonical" href="https://securitylab.github.com/ctf/uboot/">
+<meta property="og:url" content="https://securitylab.github.com/ctf/uboot/">
+<meta property="og:site_name" content="GitHub Security Lab">
+<meta property="og:image" content="https://securitylab.github.com/assets/img/social-card.png">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="twitter:image" content="https://securitylab.github.com/assets/img/social-card.png">
+<meta property="twitter:title" content="GitHub Security Lab CTF 2: U-Boot Challenge">
+<meta name="twitter:site" content="@GHSecurityLab">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Securing the world’s software, together","headline":"GitHub Security Lab CTF 2: U-Boot Challenge","image":"https://securitylab.github.com/assets/img/social-card.png","url":"https://securitylab.github.com/ctf/uboot/"}</script>
+<!-- End Jekyll SEO tag -->
+
+    
+</head>
+  
+
+<body class="page-ctf-detail page-ready darkmode">
+  <a class="skip-to-content" href="#content">skip to content</a>
+
+  <div class="d-none d-md-block py-2 bg-gray-dark">
+  <div class="container-lg p-responsive d-flex flex-md-justify-between"><a class="d-block text-white no-underline" href="https://github.com/" data-ga-click="Top bar, go to github, text:Back to GitHub.com">Back to GitHub.com</a></div>
+</div>
+<nav class="site-navigation UnderlineNav d-block">
+  <div class="container-lg d-flex flex-items-center px-3 px-md-6 px-lg-3 py-0">
+    <svg height="32" class="octicon octicon-mark-github mr-2" viewBox="0 0 16 16" version="1.1" width="32" aria-hidden="true">
+      <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+    </svg>
+    <a aria-current="page" role="tab" title="Security Lab" class="UnderlineNav-item UnderlineNav-item--logo" href="https://securitylab.github.com/">Security Lab</a>
+    <div class="UnderlineNav-body flex-auto flex-justify-end hide-sm hide-md" role="tablist">
+      <a role="tab" title="Bounties" class="UnderlineNav-item " href="https://securitylab.github.com/bounties/">Bounties</a>
+      <a role="tab" title="Research" class="UnderlineNav-item " href="https://securitylab.github.com/research/">Research</a>
+      <a role="tab" title="Advisories" class="UnderlineNav-item " href="https://securitylab.github.com/advisories/">Advisories</a>
+      <a role="tab" title="CodeQL Wall of Fame" class="UnderlineNav-item " href="https://securitylab.github.com/codeql-wall-of-fame/">CodeQL Wall of Fame</a>
+      <a role="tab" title="Get Involved" class="UnderlineNav-item " href="https://securitylab.github.com/get-involved/">Get Involved</a>
+      <a role="tab" title="Events" class="UnderlineNav-item " href="https://securitylab.github.com/events/">Events</a>
+		</div>
+    <div class="flex-auto d-flex flex-justify-end hide-lg hide-xl"><button aria-label="Menu" aria-expanded="false" class="sc-VigVT sc-jzJRlG facTgp js-menu-trigger"><svg aria-hidden="true" class="sc-dxgOiQ hTjMfW" height="16" role="img" viewBox="0 0 12 16" width="12" style="display:inline-block;fill:currentColor;user-select:none;vertical-align:text-bottom"><path fill-rule="evenodd" d="M11.41 9H.59C0 9 0 8.59 0 8c0-.59 0-1 .59-1H11.4c.59 0 .59.41.59 1 0 .59 0 1-.59 1h.01zm0-4H.59C0 5 0 4.59 0 4c0-.59 0-1 .59-1H11.4c.59 0 .59.41.59 1 0 .59 0 1-.59 1h.01zM.59 11H11.4c.59 0 .59.41.59 1 0 .59 0 1-.59 1H.59C0 13 0 12.59 0 12c0-.59 0-1 .59-1z"></path></svg></button><div></div></div>
+  </div>
+</nav>
+
+<div class="mobile-nav">
+  <div>
+    <a role="tab" title="Home" class="UnderlineNav-item " href="https://securitylab.github.com/">Home</a>
+    <a role="tab" title="Bounties" class="UnderlineNav-item " href="https://securitylab.github.com/bounties/">Bounties</a>
+    <a role="tab" title="Research" class="UnderlineNav-item " href="https://securitylab.github.com/research/">Research</a>
+    <a role="tab" title="Advisories" class="UnderlineNav-item " href="https://securitylab.github.com/advisories/">Advisories</a>
+    <a role="tab" title="CodeQL Wall of Fame" class="UnderlineNav-item " href="https://securitylab.github.com/codeql-wall-of-fame/">CodeQL Wall of Fame</a>
+    <a role="tab" title="Get Involved" class="UnderlineNav-item " href="https://securitylab.github.com/get-involved/">Get Involved</a>
+    <a role="tab" title="Events" class="UnderlineNav-item " href="https://securitylab.github.com/events/">Events</a>
+  </div>
+</div>
+<span class="mobile-nav-screen js-menu-trigger"></span>
+
+
+  <main id="content" class="main page-content" aria-label="Content">
+    <div class="container-lg p-responsive markdown-body my-6">
+  <h1>GitHub Security Lab CTF 2: U-Boot Challenge</h1>
+  <p>
+    Language: C - Difficulty level:
+    <span title="medium">
+      <svg viewBox="0 0 18 18" class="sc-gisBJw star-icon"><path d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74L14 6z"></path></svg>
+      <svg viewBox="0 0 18 18" class="sc-gisBJw star-icon"><path d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74L14 6z"></path></svg>
+      <svg viewBox="0 0 18 18" class="sc-gisBJw star-icon outline"><path d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74L14 6z"></path></svg>
+    </span>
+  </p>
+  <p>
+    Do you want to challenge your vulnerability hunting skills and to 
+quickly learn CodeQL? Your mission, should you choose to accept it, is 
+to find all variants leading to a memcpy attacker controlled overflow. 
+You will do this by
+    utilizing QL, our simple, yet expressive, code query language. To 
+capture the flag, you’ll need to write a query that finds unsafe calls 
+to memcpy using this step by step guide.
+  </p>
+  <h2>Challenge instructions</h2>
+  <p>
+    The goal of this challenge is to find the 13 remote-code-execution vulnerabilities
+    <a href="https://securitylab.github.com/research/uboot-rce-nfs-vulnerability">that our security researchers found</a>
+    in the <a href="https://en.wikipedia.org/wiki/Das_U-Boot">U-Boot loader</a>.
+ The vulnerabilities can be triggered when U-Boot is configured to use 
+the network for fetching the next stage boot resources. MITRE has issued
+ the following
+    CVEs for the 13 vulnerabilities: <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-14192">CVE-2019-14192</a>, <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-14193">CVE-2019-14193</a>,
+    <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-14194">CVE-2019-14194</a>, <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-14195">CVE-2019-14195</a>,
+    <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-14196">CVE-2019-14196</a>, <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-14197">CVE-2019-14197</a>,
+    <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-14198">CVE-2019-14198</a>, <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-14199">CVE-2019-14199</a>,
+    <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-14200">CVE-2019-14200</a>, <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-14201">CVE-2019-14201</a>,
+    <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-14202">CVE-2019-14202</a>, <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-14203">CVE-2019-14203</a>, and
+    <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-14204">CVE-2019-14204</a>.
+  </p>
+  <p>
+    Through these vulnerabilities an attacker in the same network (or 
+controlling a malicious NFS server) could gain code execution at the 
+U-Boot powered device. The first two occurrences of the vulnerability 
+were plain memcpy overflows
+    with an attacker-controlled size coming from the network packet 
+without any validation. The <code>memcpy</code> function copies <code>n</code> bytes from memory area <code>src</code> to memory area <code>dest</code>.
+ This can be unsafe
+    when the size being parsed is not appropriately validated, allowing 
+an attacker to fully control the data and length being passed through.
+  </p>
+  <p>
+    U-Boot contains hundreds of calls to <code>memcpy</code> and <code>libc</code> functions that read from the network such as <code>ntohl</code> and <code>ntohs</code>. In this challenge, you will use
+    <a href="https://codeql.com/">CodeQL</a> to find those calls. Of 
+course many of those calls are safe, so throughout this challenge you 
+will refine your query to reduce the number of false positives.
+  </p>
+  <p>Upon completion of the challenge, you will have a query that is 
+able to find many of the vulnerabilities that allow for remote execution
+ of arbitrary code on U-Boot powered devices.</p>
+  <h2>Setup instructions</h2>
+  <p>
+    Instructions for installing CodeQL are included at the end of this document.
+  </p>
+  <h2>Documentation links</h2>
+  <p>If you get stuck, try searching our documentation and blog posts 
+for help and ideas. Below are a few links to help you get started:</p>
+  <ul>
+    <li><a href="https://codeql.github.com/docs/">https://codeql.github.com/docs/</a></li>
+  </ul>
+  <h2>Challenge</h2>
+  <p>The challenge is split into several steps, each of which contains multiple questions.</p>
+  <h2>Step 0: Finding the definition of memcpy, ntohl, ntohll, and ntohs</h2>
+  <pre><code class="tree-sitter language-ql"><span><span class="keyword control">import</span> <span class="entity name section">cpp</span>
+
+<span class="keyword control">from</span> <span class="entity name type"><span class="entity name type">Function</span></span> <span class="variable parameter">f</span>
+<span class="keyword control">where</span> <span class="variable other">f</span><span class="keyword operator">.</span><span class="entity name function">getName</span><span class="keyword operator">(</span><span class="keyword operator">)</span> <span class="keyword operator">=</span> <span class="string quoted double">"strlen"</span>
+<span class="keyword control">select</span> <span class="variable other">f</span></span></code></pre>
+  <p><strong>Question 0.0: Can you work out what the above query is doing?</strong></p>
+  <ul>
+    <li>Hint: Paste it in the Query Console and run it.</li>
+  </ul>
+  <p><strong>Question 0.1: Modify the query to find the definition of memcpy.</strong></p>
+  <ul>
+    <li>Hint: Queries have a from, where, and select clause. Have a look at this <a href="https://codeql.github.com/docs/writing-codeql-queries/introduction-to-ql/">introduction to the QL language</a>.</li>
+  </ul>
+  <p>
+    <strong>Question 0.2: <code>ntohl</code>, <code>ntohll</code>, and <code>ntohs</code> can either be functions or macros (depending on the platform where the code is compiled).</strong>
+  </p>
+  <p>As these snapshots for U-Boot were built on Linux, we know they are
+ going to be macros. Write a query to find the definition of these 
+macros.</p>
+  <ul>
+    <li>
+      <p>
+        Hint: The CodeQL Query Console has an auto-completion feature. Hit <code>Ctrl-Space</code> after the from clause to get the list of objects you can query. Wait a second after typing <code>myObject.</code> to get the list of methods.
+      </p>
+    </li>
+    <li><p>Hint: We can use a regular expression to write a query that searches for all three macros at once.</p></li>
+  </ul>
+  <h2>Step 1: Finding the calls to memcpy, ntohl, ntohll, and ntohs</h2>
+  <p>
+    <strong>Question 1.0: Find all the calls to <code>memcpy</code>.</strong>
+  </p>
+  <ul>
+    <li>Hint: Use the auto-completion feature on the function call 
+variable to guess how to express the relation between a function call 
+and a function, and how to bind them.</li>
+  </ul>
+  <p>
+    <strong>Question 1.1: Find all the calls to <code>ntohl</code>, <code>ntohll</code>, and <code>ntohs</code>.</strong>
+  </p>
+  <ul>
+    <li>Hint: calls to <code>ntohl</code>, <code>ntohll</code>, and <code>ntohs</code> are macro invocations, unlike memcpy which is a function call.</li>
+  </ul>
+  <p><strong>Question 1.2: Find the expressions that resulted in these macro invocations.</strong></p>
+  <ul>
+    <li>Hint: We need to get the expression of the macro invocation we found in 1.1</li>
+  </ul>
+  <h2>Step 2: Data flow analysis</h2>
+  <p>
+    For this step, we want to detect cases where some data read from the
+ network will end up being used by a call to memcpy. To do this, we’ll 
+use the CodeQL taint tracking library, and its predicate <code>hasFlowPath</code> that will tell
+    us when some data coming from a <em>source</em> flows to a <em>sink</em>. Use the boiler plate provided below to complete your
+    <a href="https://codeql.github.com/codeql-standard-libraries/cpp/semmle/code/cpp/dataflow/TaintTracking.qll/module.TaintTracking$TaintTracking.html">taint tracking</a> query.
+  </p>
+  <p>
+    <strong>
+      Question 2.0: Write a <a href="https://codeql.github.com/docs/ql-language-reference/types/#classes">QL class</a> that finds all the top-level expressions associated with the macro invocations to the calls to <code>ntohl</code>,
+      <code>ntohll</code>, and <code>ntohs</code>.
+    </strong>
+  </p>
+  <ul>
+    <li>Hint: Querying this class should give you the same results as in question 1.2</li>
+  </ul>
+  <p>
+    <strong>
+      Question 2.1: Create the <a href="https://codeql.github.com/codeql-standard-libraries/cpp/semmle/code/cpp/dataflow/internal/tainttracking1/TaintTrackingImpl.qll/type.TaintTrackingImpl$Configuration.html">configuration</a> class, by defining the source and sink.
+    </strong>
+    The source should be calls to <code>ntohl</code>, <code>ntohll</code>, or <code>ntohs</code>. The sink should be the size argument of an unsafe call to memcpy.
+  </p>
+  <ul>
+    <li><p>Hint: The source should be an instance of the class you wrote in part 2.0.</p></li>
+    <li><p>Hint: The sink should be the size argument of calls to memcpy.</p></li>
+  </ul>
+  <pre><code class="tree-sitter language-ql"><span><span class="comment">/**
+* @kind path-problem
+*/</span>
+
+<span class="keyword control">import</span> <span class="entity name section">cpp</span>
+<span class="keyword control">import</span> <span class="entity name section">semmle<span class="keyword operator">.</span>code<span class="keyword operator">.</span>cpp<span class="keyword operator">.</span>dataflow<span class="keyword operator">.</span>TaintTracking</span>
+<span class="keyword control">import</span> <span class="entity name section"><span class="entity name section">DataFlow</span><span class="keyword operator">::</span>PathGraph</span>
+
+<span class="keyword control">class</span> <span class="entity name type">YOUR_CLASS_HERE</span> <span class="keyword control">extends</span> <span class="entity name type"><span class="entity name type">Expr</span></span> <span class="keyword operator">{</span>
+  <span class="comment">// 2.0 Todo </span>
+<span class="keyword operator">}</span>
+
+<span class="keyword control">class</span> <span class="entity name type">Config</span> <span class="keyword control">extends</span> <span class="entity name type"><span class="entity name section">TaintTracking</span><span class="keyword operator">::</span><span class="entity name type">Configuration</span></span> <span class="keyword operator">{</span>
+  <span class="entity name type">Config</span><span class="keyword operator">(</span><span class="keyword operator">)</span> <span class="keyword operator">{</span> <span class="variable language">this</span> <span class="keyword operator">=</span> <span class="string quoted double">"NetworkToMemFuncLength"</span> <span class="keyword operator">}</span>
+
+  <span class="storage modifier">override</span> <span class="keyword control">predicate</span> <span class="entity name function">isSource</span><span class="keyword operator">(</span><span class="entity name type"><span class="entity name section">DataFlow</span><span class="keyword operator">::</span><span class="entity name type">Node</span></span> <span class="variable parameter">source</span><span class="keyword operator">)</span> <span class="keyword operator">{</span>
+      <span class="comment">// 2.1 Todo</span>
+  <span class="keyword operator">}</span>
+  <span class="storage modifier">override</span> <span class="keyword control">predicate</span> <span class="entity name function">isSink</span><span class="keyword operator">(</span><span class="entity name type"><span class="entity name section">DataFlow</span><span class="keyword operator">::</span><span class="entity name type">Node</span></span> <span class="variable parameter">sink</span><span class="keyword operator">)</span> <span class="keyword operator">{</span>
+     <span class="comment">// 2.1Todo</span>
+<span class="keyword operator">}</span>
+
+<span class="keyword control">from</span> <span class="entity name type"><span class="entity name type">Config</span></span> cfg<span class="keyword operator">,</span> <span class="entity name type"><span class="entity name section">DataFlow</span><span class="keyword operator">::</span><span class="entity name type">PathNode</span></span> source<span class="keyword operator">,</span> <span class="entity name type"><span class="entity name section">DataFlow</span><span class="keyword operator">::</span><span class="entity name type">PathNode</span></span> s<span class="keyword control">in</span>k
+<span class="keyword control">where</span> cfg<span class="keyword operator">.</span>h<span class="keyword control">as</span><span class="entity name type"><span class="entity name type">FlowPath</span></span><span class="keyword operator">(</span><span class="variable other">source</span><span class="keyword operator">,</span> s<span class="keyword control">in</span>k<span class="keyword operator">)</span>
+<span class="keyword control">select</span> <span class="variable other">sink</span><span class="keyword operator">,</span> <span class="variable other">source</span><span class="keyword operator">,</span> <span class="variable other">sink</span><span class="keyword operator">,</span> <span class="string quoted double">"ntoh flows to memcpy"</span></span></code></pre>
+  <h2>Step 3: Find additional vulnerabilities</h2>
+  <p><strong>Question 3.0: There are 13 known vulnerabilities in U-Boot.</strong></p>
+  <p>The query you completed above probably found 9 of them. See if you 
+can refine your query to find 1 or more additional vulnerabilities.</p>
+  <p><strong>Question 3.1: Generalize your query to find other untrusted inputs (not only networking) such as ext4 fs.</strong></p>
+  <h2>Getting Help</h2>
+  <p>If you find yourself stuck writing QL or on any part of the CTF and would like some help, drop us an email at <a href="mailto:ctf@github.com">ctf@github.com</a></p>
+  <h2>Setup instructions for running CodeQL offline</h2>
+  <p>
+    We hope you enjoyed this challenge! If you are interested in 
+continuing to use CodeQL for security research, then we recommend 
+installing CodeQL on your own computer. This will enable you to run 
+queries offline. We have also provided
+    these offline instructions for posterity, because the query results 
+will change over time as the source code evolves. But the instructions 
+below use a snapshot corresponding to revision
+    <a href="https://github.com/u-boot/u-boot/tree/d0d07ba86afc8074d79e436b1ba4478fa0f0c1b5"><code>d0d07ba</code></a>, which is the revision for which we designed this challenge. To run CodeQL queries offline, follow these steps:
+  </p>
+  <ol>
+    <li>Install the <a href="https://code.visualstudio.com/">Visual Studio Code IDE</a>.</li>
+    <li>Download and install the <a href="https://securitylab.github.com/tools/codeql/">Visual Studio Code extension</a>.</li>
+    <li>
+      Download a <a href="https://github.com/github/securitylab/releases/download/u-boot-codeql-database/u-boot_u-boot_cpp-srcVersion_d0d07ba86afc8074d79e436b1ba4478fa0f0c1b5-dist_odasa-2019-07-25-linux64.zip"> pre-existing vulnerable uboot CodeQL database</a> or create one by using the CodeQL CLI, which corresponds to revision
+      <a href="https://github.com/u-boot/u-boot/tree/d0d07ba86afc8074d79e436b1ba4478fa0f0c1b5"><code>d0d07ba</code></a> and import it in Visual Studio Code.
+    </li>
+  </ol>
+</div>
+
+  </main>
+
+  <footer class="sc-dVhcbM cBEMHy footer mt-6">
+  <div class="container-xl p-responsive">
+    <div class="d-flex flex-wrap py-5 mb-5">
+      <div class="col-12 col-lg-4 mb-5">
+        <a href="https://github.com/" data-ga-click="Footer, go to home, text:home" class="text-gray-dark" aria-label="Go to GitHub homepage">
+          <svg height="30" class="octicon octicon-logo-github" viewBox="0 0 45 16" version="1.1" width="84" aria-hidden="true">
+            <path fill-rule="evenodd" d="M18.53 12.03h-.02c.009 0 .015.01.024.011h.006l-.01-.01zm.004.011c-.093.001-.327.05-.574.05-.78 0-1.05-.36-1.05-.83V8.13h1.59c.09 0 .16-.08.16-.19v-1.7c0-.09-.08-.17-.16-.17h-1.59V3.96c0-.08-.05-.13-.14-.13h-2.16c-.09 0-.14.05-.14.13v2.17s-1.09.27-1.16.28c-.08.02-.13.09-.13.17v1.36c0 .11.08.19.17.19h1.11v3.28c0 2.44 1.7 2.69 2.86 2.69.53 0 1.17-.17 1.27-.22.06-.02.09-.09.09-.16v-1.5a.177.177 0 00-.146-.18zM42.23 9.84c0-1.81-.73-2.05-1.5-1.97-.6.04-1.08.34-1.08.34v3.52s.49.34 1.22.36c1.03.03 1.36-.34 1.36-2.25zm2.43-.16c0 3.43-1.11 4.41-3.05 4.41-1.64 0-2.52-.83-2.52-.83s-.04.46-.09.52c-.03.06-.08.08-.14.08h-1.48c-.1 0-.19-.08-.19-.17l.02-11.11c0-.09.08-.17.17-.17h2.13c.09 0 .17.08.17.17v3.77s.82-.53 2.02-.53l-.01-.02c1.2 0 2.97.45 2.97 3.88zm-8.72-3.61h-2.1c-.11 0-.17.08-.17.19v5.44s-.55.39-1.3.39-.97-.34-.97-1.09V6.25c0-.09-.08-.17-.17-.17h-2.14c-.09 0-.17.08-.17.17v5.11c0 2.2 1.23 2.75 2.92 2.75 1.39 0 2.52-.77 2.52-.77s.05.39.08.45c.02.05.09.09.16.09h1.34c.11 0 .17-.08.17-.17l.02-7.47c0-.09-.08-.17-.19-.17zm-23.7-.01h-2.13c-.09 0-.17.09-.17.2v7.34c0 .2.13.27.3.27h1.92c.2 0 .25-.09.25-.27V6.23c0-.09-.08-.17-.17-.17zm-1.05-3.38c-.77 0-1.38.61-1.38 1.38 0 .77.61 1.38 1.38 1.38.75 0 1.36-.61 1.36-1.38 0-.77-.61-1.38-1.36-1.38zm16.49-.25h-2.11c-.09 0-.17.08-.17.17v4.09h-3.31V2.6c0-.09-.08-.17-.17-.17h-2.13c-.09 0-.17.08-.17.17v11.11c0 .09.09.17.17.17h2.13c.09 0 .17-.08.17-.17V8.96h3.31l-.02 4.75c0 .09.08.17.17.17h2.13c.09 0 .17-.08.17-.17V2.6c0-.09-.08-.17-.17-.17zM8.81 7.35v5.74c0 .04-.01.11-.06.13 0 0-1.25.89-3.31.89-2.49 0-5.44-.78-5.44-5.92S2.58 1.99 5.1 2c2.18 0 3.06.49 3.2.58.04.05.06.09.06.14L7.94 4.5c0 .09-.09.2-.2.17-.36-.11-.9-.33-2.17-.33-1.47 0-3.05.42-3.05 3.73s1.5 3.7 2.58 3.7c.92 0 1.25-.11 1.25-.11v-2.3H4.88c-.11 0-.19-.08-.19-.17V7.35c0-.09.08-.17.19-.17h3.74c.11 0 .19.08.19.17z"></path>
+          </svg>
+        </a>
+      </div>
+      <div class="col-6 col-sm-3 col-lg-2 mb-6 mb-md-2 pr-3 pr-lg-0 pl-lg-4">
+        <h2 class="h5 mb-3 text-mono text-gray-light text-normal">Product</h2>
+        <ul class="list-style-none text-gray f5">
+          <li class="lh-condensed mb-3"><a href="https://github.com/features" data-ga-click="Footer, go to features, text:features" class="link-gray">Features</a></li>
+          <li class="lh-condensed mb-3"><a href="https://github.com/security" data-ga-click="Footer, go to security, text:security" class="link-gray">Security</a></li>
+          <li class="lh-condensed mb-3"><a href="https://github.com/enterprise" data-ga-click="Footer, go to enterprise, text:enterprise" class="link-gray">Enterprise</a></li>
+          <li class="lh-condensed mb-3"><a href="https://github.com/customer-stories?type=enterprise" data-ga-click="Footer, go to customer stories, text:customer stories" class="link-gray">Customer stories</a></li>
+          <li class="lh-condensed mb-3"><a href="https://github.com/pricing" data-ga-click="Footer, go to pricing, text:pricing" class="link-gray">Pricing</a></li>
+          <li class="lh-condensed mb-3"><a href="https://resources.github.com/" data-ga-click="Footer, go to resources, text:resources" class="link-gray">Resources</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-sm-3 col-lg-2 mb-6 mb-md-2 pr-3 pr-md-0 pl-md-4">
+        <h2 class="h5 mb-3 text-mono text-gray-light text-normal">Platform</h2>
+        <ul class="list-style-none f5">
+          <li class="lh-condensed mb-3"><a href="https://developer.github.com/" data-ga-click="Footer, go to api, text:api" class="link-gray">Developer API</a></li>
+          <li class="lh-condensed mb-3"><a href="http://partner.github.com/" data-ga-click="Footer, go to partner, text:partner" class="link-gray ">Partners</a></li>
+          <li class="lh-condensed mb-3"><a href="https://atom.io/" data-ga-click="Footer, go to atom, text:atom" class="link-gray ">Atom</a></li>
+          <li class="lh-condensed mb-3"><a href="http://electron.atom.io/" data-ga-click="Footer, go to electron, text:electron" class="link-gray ">Electron</a></li>
+          <li class="lh-condensed mb-3"><a href="https://desktop.github.com/" data-ga-click="Footer, go to desktop, text:desktop" class="link-gray ">GitHub Desktop</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-sm-3 col-lg-2 mb-6 mb-md-2 pr-3 pr-md-0 pl-md-4">
+        <h2 class="h5 mb-3 text-mono text-gray-light text-normal">Support</h2>
+        <ul class="list-style-none f5">
+          <li class="lh-condensed mb-3"><a data-ga-click="Footer, go to help, text:docs" class="link-gray " href="https://docs.github.com/">Docs</a></li>
+          <li class="lh-condensed mb-3"><a href="https://github.community/" data-ga-click="Footer, go to community, text:community" class="link-gray ">Community Forum</a></li>
+          <li class="lh-condensed mb-3"><a href="https://services.github.com/" data-ga-click="Footer, go to professional services, text:professional services" class="link-gray ">Professional Services</a></li>
+          <li class="lh-condensed mb-3"><a href="https://githubstatus.com/" data-ga-click="Footer, go to status, text:status" class="link-gray ">Status</a></li>
+          <li class="lh-condensed mb-3"><a data-ga-click="Footer, go to contact, text:contact" class="link-gray " href="https://support.github.com/">Contact GitHub</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-sm-3 col-lg-2 mb-6 mb-md-2 pr-3 pr-md-0 pl-md-4">
+        <h2 class="h5 mb-3 text-mono text-gray-light text-normal">Company</h2>
+        <ul class="list-style-none f5">
+          <li class="lh-condensed mb-3"><a data-ga-click="Footer, go to about, text:about" class="link-gray " href="https://github.com/about">About</a></li>
+          <li class="lh-condensed mb-3"><a href="https://github.blog/" data-ga-click="Footer, go to blog, text:blog" class="link-gray">Blog</a></li>
+          <li class="lh-condensed mb-3"><a href="https://github.com/about/careers" data-ga-click="Footer, go to careers, text:careers" class="link-gray">Careers</a></li>
+          <li class="lh-condensed mb-3"><a href="https://github.com/about/press" data-ga-click="Footer, go to press, text:press" class="link-gray">Press</a></li>
+          <li class="lh-condensed mb-3"><a href="https://shop.github.com/" data-ga-click="Footer, go to shop, text:shop" class="link-gray">Shop</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="bg-gray-light">
+    <div class="container-xl p-responsive f6 py-4 d-sm-flex flex-justify-between flex-row-reverse flex-items-center">
+      <ul class="list-style-none d-flex flex-items-center mb-3 mb-sm-0 lh-condensed-ultra social-icons">
+        <li class="mr-3">
+          <a href="https://twitter.com/github" data-ga-click="Footer, go to Twitter, text:twitter" title="GitHub on Twitter">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 273.5 222.3" class="d-block" height="18">
+              <path d="M273.5 26.3a109.77 109.77 0 0 1-32.2 8.8 56.07 56.07 0 0 0 24.7-31 113.39 113.39 0 0 1-35.7 13.6 56.1 56.1 0 0 0-97 38.4 54 54 0 0 0 1.5 12.8A159.68 159.68 0 0 1 19.1 10.3a56.12 56.12 0 0 0 17.4 74.9 56.06 56.06 0 0 1-25.4-7v.7a56.11 56.11 0 0 0 45 55 55.65 55.65 0 0 1-14.8 2 62.39 62.39 0 0 1-10.6-1 56.24 56.24 0 0 0 52.4 39 112.87 112.87 0 0 1-69.7 24 119 119 0 0 1-13.4-.8 158.83 158.83 0 0 0 86 25.2c103.2 0 159.6-85.5 159.6-159.6 0-2.4-.1-4.9-.2-7.3a114.25 114.25 0 0 0 28.1-29.1" fill="currentColor"></path>
+            </svg>
+          </a>
+        </li>
+        <li class="mr-3">
+          <a href="https://www.facebook.com/GitHub" data-ga-click="Footer, go to Facebook, text:facebook" title="GitHub on Facebook">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.3 15.4" class="d-block" height="18">
+              <path d="M14.5 0H.8a.88.88 0 0 0-.8.9v13.6a.88.88 0 0 0 .8.9h7.3v-6h-2V7.1h2V5.4a2.87 2.87 0 0 1 2.5-3.1h.5a10.87 10.87 0 0 1 1.8.1v2.1h-1.3c-1 0-1.1.5-1.1 1.1v1.5h2.3l-.3 2.3h-2v5.9h3.9a.88.88 0 0 0 .9-.8V.8a.86.86 0 0 0-.8-.8z" fill="currentColor"></path>
+            </svg>
+          </a>
+        </li>
+        <li class="mr-3">
+          <a href="https://www.youtube.com/github" data-ga-click="Footer, go to YouTube, text:youtube" title="GitHub on YouTube">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.17 13.6" class="d-block" height="16">
+              <path d="M18.77 2.13A2.4 2.4 0 0 0 17.09.42C15.59 0 9.58 0 9.58 0a57.55 57.55 0 0 0-7.5.4A2.49 2.49 0 0 0 .39 2.13 26.27 26.27 0 0 0 0 6.8a26.15 26.15 0 0 0 .39 4.67 2.43 2.43 0 0 0 1.69 1.71c1.52.42 7.5.42 7.5.42a57.69 57.69 0 0 0 7.51-.4 2.4 2.4 0 0 0 1.68-1.71 25.63 25.63 0 0 0 .4-4.67 24 24 0 0 0-.4-4.69zM7.67 9.71V3.89l5 2.91z" fill="currentColor"></path>
+            </svg>
+          </a>
+        </li>
+        <li class="mr-3 flex-self-start">
+          <a href="https://www.linkedin.com/company/github" data-ga-click="Footer, go to Linkedin, text:linkedin" title="GitHub on Linkedin">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19 18" class="d-block" height="18">
+              <path d="M3.94 2A2 2 0 1 1 2 0a2 2 0 0 1 1.94 2zM4 5.48H0V18h4zm6.32 0H6.34V18h3.94v-6.57c0-3.66 4.77-4 4.77 0V18H19v-7.93c0-6.17-7.06-5.94-8.72-2.91z" fill="currentColor"></path>
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/github" data-ga-click="Footer, go to github's org, text:github" title="GitHub's organization">
+            <svg height="20" class="octicon octicon-mark-github d-block" viewBox="0 0 16 16" version="1.1" width="20" aria-hidden="true">
+              <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+            </svg>
+          </a>
+        </li>
+      </ul>
+      <ul class="list-style-none d-flex text-gray">
+        <li class="mr-3">
+          © <!-- -->2021<!-- --> GitHub, Inc.
+        </li>
+        <li class="mr-3"><a href="https://docs.github.com/en/github/site-policy/github-terms-of-service" data-ga-click="Footer, go to terms, text:terms" class="link-gray">Terms</a></li>
+        <li class="mr-3"><a href="https://docs.github.com/en/github/site-policy/github-privacy-statement" data-ga-click="Footer, go to privacy, text:privacy" class="link-gray">Privacy</a></li>
+        <li><a href="#" class="link-gray">Cookie settings</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+
+  <!-- JAVASCRIPT -->
+  <script src="GitHub%20Security%20Lab%20CTF%202%20U-Boot%20Challenge%20GitHub%20Security%20Lab_files/main.js"></script>
+
+
+</body></html>
